@@ -3,8 +3,8 @@ import { PremiumCard } from "@/components/PremiumCard";
 import { products } from "@/data/products";
 import Link from "next/link";
 import VannameiImg from "@/../public/images/Vannamei.webp"
-import scampiImg from "@/../public/images/scampi.jpg"
-import blackTigerImg from "@/../public/images/black-tiger.jpg"
+import scampiImg from "@/../public/images/scampi.webp"
+import blackTigerImg from "@/../public/images/back-tiger.jpg"
 export default function Home() {
   const premiumProducts = products.filter((p) => p.isPremium).slice(0, 3);
 const ProductCategory =[
