@@ -64,7 +64,7 @@ const ProductCategory =[
               Royal Sea Food International is a leading seafood exporter and distributor, providing high-quality seafood products to customers worldwide. We are committed to sustainability and ethical sourcing, and we are dedicated to providing the best possible service to our customers.
               We are a team of experienced seafood professionals who are dedicated to providing the best possible service to our customers. We are committed to sustainability and ethical sourcing, and we are dedicated to providing the best possible service to our customers.
             </p>
-            <button className="border bg-gray-700 border-gray-500/30 text-white px-8 py-2 rounded-md mt-10 cursor-pointer hover:bg-gray-500/30 hover:text-white transition-all duration-300">
+            <button className=" bg-primary  text-white px-8 py-2 rounded-md mt-10 cursor-pointer hover:bg-gray-500/30 hover:text-white transition-all duration-300">
               <Link href="/contact">
                 Contact Us
               </Link>

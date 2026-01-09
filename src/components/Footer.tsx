@@ -1,35 +1,35 @@
 export function Footer() {
     return (
-      <footer className="bg-gray-700 text-sky-100/80">
+      <footer className="bg-foreground ">
         <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
           <div className="flex flex-col sm:flex-row sm:justify-between gap-10 sm:gap-16">
             
             {/* Company Info */}
             <div className="flex-1">
-              <p className="text-base font-semibold uppercase tracking-wider text-white">
+              <p className="text-base font-semibold uppercase tracking-wider text-secondary">
                 Royal Sea Food International
               </p>
-              <p className="mt-2 text-sm text-sky-100/80 max-w-xs">
+              <p className="mt-2 text-sm text-secondary max-w-xs">
                 A global partner for premium fresh and frozen seafood, connecting certified producers with importers, distributors, and retailers worldwide.
               </p>
             </div>
   
             {/* Pages */}
             <div className="flex-1">
-              <p className="font-semibold uppercase mb-2 text-white">Pages</p>
-              <ul className="space-y-1 text-sm">
+              <p className="font-semibold uppercase mb-2 text-secondary">Pages</p>
+              <ul className="space-y-1 text-sm text-secondary">
                 <li>
-                  <a href="/" className="hover:text-white transition-colors">
+                  <a href="/" className="hover:text-secondary transition-colors">
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="/product" className="hover:text-white transition-colors">
+                  <a href="/product" className="hover:text-secondary transition-colors">
                     Product
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="hover:text-white transition-colors">
+                  <a href="/contact" className="hover:text-secondary transition-colors">
                     Contact
                   </a>
                 </li>
@@ -38,8 +38,8 @@ export function Footer() {
   
             {/* Contact Info */}
             <div className="flex-1">
-              <p className="font-semibold uppercase mb-2 text-white">Contact</p>
-              <ul className="space-y-1 text-sm">
+              <p className="font-semibold uppercase mb-2 text-secondary">Contact</p>
+              <ul className="space-y-1 text-sm text-secondary" >
                 <li>Email: info@royalseafood.com</li>
                 <li>Phone: +92 300 1234567</li>
                 <li>Address: 123 Seafood Street, Karachi, Pakistan</li>
