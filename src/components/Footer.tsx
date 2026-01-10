@@ -1,59 +1,109 @@
+"use client";
+
+import Link from "next/link";
+import {
+  FacebookFilled,
+  TwitterOutlined,
+  InstagramOutlined,
+  LinkedinFilled,
+} from "@ant-design/icons";
+
 export function Footer() {
-    return (
-      <footer className="bg-foreground ">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
-          <div className="flex flex-col sm:flex-row sm:justify-between gap-10 sm:gap-16">
-            
-            {/* Company Info */}
-            <div className="flex-1">
-              <p className="text-base font-semibold uppercase tracking-wider text-secondary">
-                Royal Sea Food International
-              </p>
-              <p className="mt-2 text-sm text-secondary max-w-xs">
-                A global partner for premium fresh and frozen seafood, connecting certified producers with importers, distributors, and retailers worldwide.
-              </p>
-            </div>
-  
-            {/* Pages */}
-            <div className="flex-1">
-              <p className="font-semibold uppercase mb-2 text-secondary">Pages</p>
-              <ul className="space-y-1 text-sm text-secondary">
-                <li>
-                  <a href="/" className="hover:text-secondary transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="/product" className="hover:text-secondary transition-colors">
-                    Product
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="hover:text-secondary transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-  
-            {/* Contact Info */}
-            <div className="flex-1">
-              <p className="font-semibold uppercase mb-2 text-secondary">Contact</p>
-              <ul className="space-y-1 text-sm text-secondary" >
-                <li>Email: info@royalseafood.com</li>
-                <li>Phone: +92 300 1234567</li>
-                <li>Address: 123 Seafood Street, Karachi, Pakistan</li>
-              </ul>
-            </div>
-          </div>
-  
-          {/* Footer Bottom */}
-          <div className="border-t border-gray-400/40 mt-10 pt-6 text-center text-xs text-gray-400">
-            <p>© 2023 Royal Seafood International.</p>
-            <p>All rights reserved.</p>
+  const footerData = {
+    contact: [
+      "Phone: +92 300 1234567",
+      "Email: info@royalseafood.com",
+    ],
+    navigation: [
+      { label: "Home", href: "/" },
+      { label: "Products", href: "/product" },
+      { label: "Contact Us", href: "/contact" },
+    ],
+    socials: [
+      { icon: <FacebookFilled />, href: "#" },
+      { icon: <TwitterOutlined />, href: "#" },
+      { icon: <InstagramOutlined />, href: "#" },
+      { icon: <LinkedinFilled />, href: "#" },
+    ],
+  };
+
+  return (
+    <footer className="bg-gray-100 text-gray-800">
+
+      <div className="mx-auto max-w-6xl px-4 pt-10">
+
+
+        <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-6">
+          <h3 className="text-sm font-semibold uppercase">
+            Contact Us
+          </h3>
+
+          <h3 className="text-sm font-semibold uppercase md:text-center">
+            Navigation
+          </h3>
+
+          <div className="flex md:justify-end gap-4 text-xl">
+            {footerData.socials.map((s, i) => (
+              <a
+                key={i}
+                href={s.href}
+                className="hover:text-gray-900 transition"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {s.icon}
+              </a>
+            ))}
           </div>
         </div>
-      </footer>
-    );
-  }
-  
+
+      </div>
+
+      <div className="" />
+
+      <div className="mx-auto max-w-6xl px-4 py-6">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <ul className="space-y-1 text-sm">
+            {footerData.contact.map((item, i) => (
+              <li key={i}>{item}</li>
+            ))}
+          </ul>
+
+          <ul className="space-y-1 text-sm md:text-center">
+            {footerData.navigation.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:underline">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div />
+        </div>
+
+        <div className=" space-y-4 text-sm">
+          <div>
+            <h4 className="font-semibold uppercase mb-1">Location</h4>
+            <p>123 Seafood Street, Karachi, Pakistan</p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold uppercase mb-1">Office Hours</h4>
+            <p>09:00 AM – 07:00 PM</p>
+            <p>Saturday – Thursday</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div className="border-t border-gray-300" />
+
+      <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© 2026 Royal Sea Food International</p>
+      </div>
+
+    </footer>
+  );
+}

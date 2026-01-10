@@ -12,7 +12,7 @@ const config: Config = {
 
         secondary: "var(--secondary)",
         "secondary-foreground": "var(--secondary-foreground)",
-
+        "button-primary": "var(--button-primary)",
         accent: "var(--accent)",
       },
     },

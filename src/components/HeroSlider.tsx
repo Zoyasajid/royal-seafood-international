@@ -33,7 +33,7 @@ export function HeroSlider() {
   return (
     <section
       aria-label="Premium seafood hero slider"
-      className="relative overflow-hidden rounded-3xl border border-sky-900/40 bg-sky-950/80 shadow-lg shadow-sky-950/40"
+      className="relative overflow-hidden rounded-3xl border  shadow-lg shadow-primary/40"
     >
       <div className="relative h-[420px] w-full sm:h-[480px] lg:h-[520px]">
         {heroImages.map((src, i) => (
@@ -50,18 +50,18 @@ export function HeroSlider() {
               priority={i === 0}
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-sky-950/60 via-sky-950/50 to-sky-900/20" />
+            <div className="absolute inset-0 " />
           </div>
         ))}
 
         <div className="relative z-10 flex h-full flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-300/90">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
             Royal Seafood International
           </p>
-          <h1 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight text-sky-50 sm:text-4xl lg:text-5xl">
+          <h1 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight text-black sm:text-4xl lg:text-5xl">
             Premium International Seafood Exporters
           </h1>
-          <p className="mt-4 max-w-xl text-sm text-sky-100/85 sm:text-base">
+          <p className="mt-4 max-w-xl text-sm text-black/85 sm:text-base">
             Sourcing certified fresh and frozen seafood from trusted fisheries
             and aquaculture farms, delivering consistent export quality to
             importers, distributors, and retailers worldwide.
@@ -69,7 +69,7 @@ export function HeroSlider() {
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <Link
               href="/products"
-              className="inline-flex items-center justify-center rounded-full bg-sky-400 px-6 py-3 text-sm font-semibold text-sky-950 shadow-sm shadow-sky-900/40 transition hover:bg-sky-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-950"
+              className="inline-flex text-white items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold  shadow-sm shadow-primary/40 transition  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-950"
             >
               Explore Products
             </Link>
@@ -84,7 +84,7 @@ export function HeroSlider() {
                 className={`h-1.5 rounded-full transition-all ${
                   i === index
                     ? "w-8 bg-sky-200"
-                    : "w-2.5 bg-sky-700/70 hover:bg-sky-400"
+                    : "w-2.5 bg-primary/70 hover:bg-primary"
                 }`}
                 onClick={() => setIndex(i)}
               />
@@ -93,14 +93,14 @@ export function HeroSlider() {
 
           <button
             onClick={prevSlide}
-            className="absolute w-10 left-2 top-1/2 -translate-y-1/2 rounded-full bg-sky-800/50 p-2 text-white hover:bg-sky-700/70 transition"
+            className="absolute w-10 left-2 top-1/2 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white hover:bg-primary transition"
             aria-label="Previous Slide"
           >
             &#10094;
           </button>
           <button
             onClick={nextSlide}
-            className="absolute w-10 right-2 top-1/2 -translate-y-1/2 rounded-full bg-sky-800/50 p-2 text-white hover:bg-sky-700/70 transition"
+            className="absolute w-10 right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white hover:bg-primary transition"
             aria-label="Next Slide"
           >
             &#10095;

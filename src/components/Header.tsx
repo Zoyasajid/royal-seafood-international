@@ -50,6 +50,7 @@ export function Header() {
             if (item.label === "Products") {
               return (
                 <Dropdown
+                rootClassName="product-dropdown"
                   key="products"
                   menu={{ items: productMenu }}
                   trigger={["hover"]}

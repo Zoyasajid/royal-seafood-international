@@ -34,7 +34,7 @@ const ProductCategory =[
       <section aria-labelledby="premium-selection-heading" className="">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div className=" flex w-full justify-center items-center h-16 mb-12 ">
-            <p className="text-3xl font-bold uppercase tracking-[0.2em] ">
+            <p className="text-3xl  font-bold uppercase tracking-[0.2em] text-black">
               Our Premium Products
             </p>
 
@@ -55,7 +55,7 @@ const ProductCategory =[
         <div className="flex flex-col gap-4 text-center ">
           <h2
             id="about-company-heading"
-            className="mt-3 text-2xl font-semibold tracking-tight  sm:text-5xl"
+            className="mt-3 text-secondary text-2xl font-semibold tracking-tight  sm:text-5xl"
           >
             About Royal Sea Food International
           </h2>
@@ -64,7 +64,7 @@ const ProductCategory =[
               Royal Sea Food International is a leading seafood exporter and distributor, providing high-quality seafood products to customers worldwide. We are committed to sustainability and ethical sourcing, and we are dedicated to providing the best possible service to our customers.
               We are a team of experienced seafood professionals who are dedicated to providing the best possible service to our customers. We are committed to sustainability and ethical sourcing, and we are dedicated to providing the best possible service to our customers.
             </p>
-            <button className=" bg-primary  text-white px-8 py-2 rounded-md mt-10 cursor-pointer hover:bg-gray-500/30 hover:text-white transition-all duration-300">
+            <button className=" bg-primary text-base text-white px-8 py-3 rounded-md mt-10 cursor-pointe">
               <Link href="/contact">
                 Contact Us
               </Link>
