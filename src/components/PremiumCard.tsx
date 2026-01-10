@@ -27,7 +27,7 @@ export function PremiumCard({ product }: PremiumCardProps) {
         </p> */}
         <div className="mt-6 flex items-center justify-between p-4 rounded-md hover:bg-primary bg-accent/80 ">
           <Link
-            href={`/products/${product.slug}`}
+            href={`/products/${product.url}`}
             className="text-xs font-semibold cursor-pointer transition hover:font-semibold  w-full "
           >
             <div className="flex justify-between text-white">

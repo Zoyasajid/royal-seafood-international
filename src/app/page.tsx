@@ -5,6 +5,7 @@ import Link from "next/link";
 import VannameiImg from "@/../public/images/Vannamei.webp"
 import scampiImg from "@/../public/images/scampi.webp"
 import blackTigerImg from "@/../public/images/back-tiger.jpg"
+import PremiumProducts from "@/components/view/PremiumProducts";
 export default function Home() {
   const premiumProducts = products.filter((p) => p.isPremium).slice(0, 3);
 const ProductCategory =[
@@ -31,22 +32,7 @@ const ProductCategory =[
     <div className="mx-auto flex max-w-7xl flex-col gap-28 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <HeroSlider />
 
-      <section aria-labelledby="premium-selection-heading" className="">
-        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div className=" flex w-full justify-center items-center h-16 mb-12 ">
-            <p className="text-3xl  font-bold uppercase tracking-[0.2em] text-black">
-              Our Premium Products
-            </p>
-
-          </div>
-
-        </div>
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {ProductCategory.map((product) => (
-            <PremiumCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
+      <PremiumProducts/>
 
       <section
         aria-labelledby="about-company-heading"

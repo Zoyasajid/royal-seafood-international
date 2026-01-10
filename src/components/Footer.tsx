@@ -16,7 +16,7 @@ export function Footer() {
     ],
     navigation: [
       { label: "Home", href: "/" },
-      { label: "Products", href: "/product" },
+      { label: "Products", href: "/products" },
       { label: "Contact Us", href: "/contact" },
     ],
     socials: [

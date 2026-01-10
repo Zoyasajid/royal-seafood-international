@@ -7,10 +7,11 @@ export type ProductCategory =
   | "Cephalopods";
 
 export type Product = {
+  url?:string;
   id: string;
   slug: string;
   name: string;
-  category: ProductCategory;
+  category: string;
   shortDescription: string;
   description: string;
   origin: string;
@@ -23,10 +24,30 @@ export type Product = {
 
 export const products: Product[] = [
   {
-    id: "atlantic-salmon-fillets",
+    id: "1",
     slug: "atlantic-salmon-fillets",
     name: "Atlantic Salmon Fillets",
-    category: "Salmon",
+    category: "black-tiger",
+    shortDescription:
+      "Premium skin-on Atlantic salmon fillets, trimmed to export specifications.",
+    description:
+      "Our Atlantic Salmon Fillets are sourced from certified farms operating under strict environmental and quality standards. Each fillet is hand-trimmed, individually quick frozen (IQF), and graded for color, fat content, and texture to meet leading retail and HORECA (hotel, restaurant, catering) requirements worldwide.",
+    origin: "Norway / Scotland",
+    storage: "Frozen at -18°C or below",
+    packaging: "IVP / IQF, 10 kg master carton",
+    exportQuality: "EU, HACCP, BRC, and FDA compliant",
+    images: [
+      "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/3687503/pexels-photo-3687503.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    ],
+    isPremium: true,
+  },
+  {
+    id: "2",
+    slug: "headless-shell-on-block",
+    name: "HEADLESS SHELL ON BLOCK",
+    category: "black-tiger",
     shortDescription:
       "Premium skin-on Atlantic salmon fillets, trimmed to export specifications.",
     description:
@@ -46,7 +67,7 @@ export const products: Product[] = [
     id: "vannamei-shrimp-pdto",
     slug: "vannamei-shrimp-pdto",
     name: "Vannamei Shrimp PD / PTO",
-    category: "Frozen Shrimp",
+    category: "vannamei",
     shortDescription:
       "Farm-raised white shrimp, peeled deveined tail-on, block or IQF frozen.",
     description:
@@ -144,21 +165,6 @@ export const products: Product[] = [
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
-}
-
-export function getRelatedProducts(
-  slug: string,
-  limit = 4,
-): Product[] {
-  const current = getProductBySlug(slug);
-  if (!current) return products.slice(0, limit);
-  const related = products.filter(
-    (p) => p.slug !== slug && p.category === current.category,
-  );
-  const others = products.filter(
-    (p) => p.slug !== slug && p.category !== current.category,
-  );
-  return [...related, ...others].slice(0, limit);
 }
 
 
