@@ -18,6 +18,7 @@ export type Product = {
   storage: string;
   packaging: string;
   exportQuality: string;
+  headerImage?:string;
   images: string[];
   isPremium?: boolean;
 };
@@ -28,21 +29,40 @@ export const products: Product[] = [
     slug: "atlantic-salmon-fillets",
     name: "Atlantic Salmon Fillets",
     category: "black-tiger",
+
     shortDescription:
       "Premium skin-on Atlantic salmon fillets, trimmed to export specifications.",
+
     description:
-      "Our Atlantic Salmon Fillets are sourced from certified farms operating under strict environmental and quality standards. Each fillet is hand-trimmed, individually quick frozen (IQF), and graded for color, fat content, and texture to meet leading retail and HORECA (hotel, restaurant, catering) requirements worldwide.",
-    origin: "Norway / Scotland",
-    storage: "Frozen at -18°C or below",
-    packaging: "IVP / IQF, 10 kg master carton",
-    exportQuality: "EU, HACCP, BRC, and FDA compliant",
+      "Our Atlantic Salmon Fillets are sourced from certified farms operating under strict environmental and quality standards. Each fillet is hand-trimmed, individually quick frozen (IQF), and graded for color, fat content, and texture to meet leading retail and HORECA requirements worldwide.",
+
+    specifications: {
+      type: "Fish",
+      scientificName: "Salmo salar",
+      processingType: "IQF, Block",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised",
+      glazing: "As per customer requirement",
+      origin: "Norway / Scotland",
+      packing: "IVP / IQF, 10 kg master carton",
+    },
+
+    sizes: {
+      iqf: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+      block: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+    },
+
+    keyFeatures:
+      "Rich in omega-3 fatty acids, high protein content, firm texture, and mild flavor. Ideal for grilling, baking, and premium seafood applications.",
+
     images: [
       "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "https://images.pexels.com/photos/3687503/pexels-photo-3687503.jpeg?auto=compress&cs=tinysrgb&w=1200",
       "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1200",
     ],
-    isPremium: true,
   },
+
+
   {
     id: "2",
     slug: "headless-shell-on-block",

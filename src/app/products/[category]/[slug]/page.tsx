@@ -1,155 +1,131 @@
 "use client";
 
 import Image from "next/image";
-import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { Card } from "@/components/Card";
+import { useParams } from "next/navigation";
+import { useState } from "react";
+import { Collapse } from "antd";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { products } from "@/data/products";
 
+const { Panel } = Collapse;
+
 export default function ProductDetailPage() {
-  const router = useRouter();
-  const params = useParams();
-
-  const category = params?.category as string;
-  const slug = params?.slug as string;
-
-  console.log(category, slug, "params");
+  const { category, slug } = useParams<{ category: string; slug: string }>();
 
   const product = products.find(
     (p) => p.category === category && p.slug === slug
   );
 
-  const [index, setIndex] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
 
   if (!product) {
     return (
-      <div className="mx-auto max-w-3xl px-4 py-16 text-center text-sm text-slate-700">
-        Product not found.
+      <div className="py-20 text-center text-sm text-gray-500">
+        Product not found
       </div>
     );
   }
 
-  const images = product.images.slice(0, 3);
+  const changeImage = (dir: "next" | "prev") => {
+    setActiveImage((i) =>
+      dir === "next"
+        ? (i + 1) % product.images.length
+        : (i - 1 + product.images.length) % product.images.length
+    );
+  };
 
-  const related = products.filter(
-    (p) =>
-      p.category === product.category &&
-      p.slug !== product.slug
-  );
-  useEffect(() => {
-    if (images.length <= 1) return;
-    const id = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(id);
-  }, [images.length]);
+  const { specifications, sizes } = product;
 
   return (
-    <div className=" sm:py-12 lg:px-8 lg:py-16">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-
-      <header className="mb-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-sky-400">
-          Product Detail
-        </p>
-        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
-          {product.name}
+    <div className="mx-auto max-w-7xl px-4 py-14 text-black">
+      <div className="mb-12 text-center">
+        <h1 className="text-[42px] font-semibold text-gray-900">
+          {product.name.toUpperCase()}
         </h1>
-      </header>
-
-      <section className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]">
-      
-        <div>
-          <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-100">
-            <div className="relative h-72 w-full sm:h-80 lg:h-96">
-              {images.map((src, i) => (
-                <div
-                  key={src}
-                  className={`absolute inset-0 transition-opacity duration-500 ${
-                    i === index ? "opacity-100" : "opacity-0"
-                  }`}
-                >
-                  <Image
-                    src={src}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-
-            <div className="absolute inset-x-0 bottom-0 flex justify-center gap-2 pb-4">
-              {images.map((_, i) => (
-                <button
-                  key={i}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === index ? "w-6 bg-sky-500" : "w-2.5 bg-white/70"
-                  }`}
-                  onClick={() => setIndex(i)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <aside className="space-y-5 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-200">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-sky-500">
-            {product.category}
-          </p>
-
-          <p className="text-sm text-slate-700">
-            {product.description}
-          </p>
-
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <p className="text-xs text-slate-500">Origin</p>
-              <p>{product.origin}</p>
-            </div>
-            <div>
-              <p className="text-xs text-slate-500">Storage</p>
-              <p>{product.storage}</p>
-            </div>
-            <div>
-              <p className="text-xs text-slate-500">Packaging</p>
-              <p>{product.packaging}</p>
-            </div>
-            <div>
-              <p className="text-xs text-slate-500">Export Quality</p>
-              <p>{product.exportQuality}</p>
-            </div>
-          </div>
-        </aside>
-      </section>
+        <p className="mt-1 text-xl uppercase tracking-[0.3em] text-gray-500">
+          {product.category.replace("-", " ")}
+        </p>
       </div>
 
-      {related.length > 0 && (
-        <div className="bg-foreground">
+      <div className="grid gap-12 lg:grid-cols-2">
+        <div className="mx-auto w-full">
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={() => changeImage("prev")}
+              className="rounded-full bg-white p-3 shadow hover:bg-gray-100"
+            >
+              <LeftOutlined />
+            </button>
 
-        <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6  mt-14">
-          <h3 className="my-8 text-black text-4xl font-semibold">
-            Also you may like
-
-          </h3>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((item) => (
-              <Card
-                key={item.id}
-                image={item.images[0]}
-                title={item.name}
-                onViewDetail={() =>
-                  router.push(
-                    `/products/${item.category}/${item.slug}`
-                  )
-                }
+            <div className="relative h-[445px] w-full max-w-xl">
+              <Image
+                src={product.images[activeImage]}
+                alt={product.name}
+                fill
+                className="object-contain"
               />
+            </div>
+
+            <button
+              onClick={() => changeImage("next")}
+              className="rounded-full bg-white p-3 shadow hover:bg-gray-100"
+            >
+              <RightOutlined />
+            </button>
+          </div>
+
+          <div className="mt-4 flex gap-3 max-w-xl mx-auto">
+            {product.images.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveImage(i)}
+                className={`relative h-24 flex-1 rounded-lg border ${
+                  activeImage === i ? "border-emerald-600" : "border-gray-200"
+                }`}
+              >
+                <Image src={img} alt="" fill className="object-contain" />
+              </button>
             ))}
           </div>
-        </section>
         </div>
-      )}
+
+        <div>
+          <h3 className="mb-4 text-xl font-semibold uppercase">
+            Specifications
+          </h3>
+
+          <ul className="space-y-2 text-gray-700">
+            {Object.entries(specifications).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key.replace(/([A-Z])/g, " $1")}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-6">
+            <h4 className="mb-2 text-xl font-semibold uppercase">
+              Available Sizes
+            </h4>
+            <p>IQF: {sizes.iqf}</p>
+            <p>Block: {sizes.block}</p>
+          </div>
+
+          <div className="mt-14 max-w-4xl">
+            <h3 className="mb-3 text-xl font-semibold uppercase">
+              Description
+            </h3>
+            <p className="text-gray-700">{product.description}</p>
+          </div>
+
+          <div className="mt-8 max-w-4xl">
+            <Collapse bordered={false} expandIconPosition="end">
+              <Panel header="KEY FEATURES AND BENEFITS" key="1">
+                <p className="text-gray-700">{product.keyFeatures}</p>
+              </Panel>
+            </Collapse>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

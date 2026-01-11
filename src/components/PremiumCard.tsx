@@ -1,10 +1,15 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import type { Product } from "@/data/products";
 import { RightOutlined } from "@ant-design/icons";
-
+type PremiumProduct = {
+  id: number;
+  name: string;
+  image: StaticImageData;
+  description: string;
+  url: string;
+};
 type PremiumCardProps = {
-  product: Product;
+ product:PremiumProduct
 };
 
 export function PremiumCard({ product }: PremiumCardProps) {
