@@ -7,18 +7,25 @@ export type ContactDetails = {
   address: string;
   country: string;
   officeHours: string;
+  socialMedia: {
+    facebook: string;
+
+  };
 };
 
-export const contactDetails: ContactDetails = {
+export const companyDetails: ContactDetails = {
   companyName: "Seafood International Exports",
   tagline: "Premium Ocean Harvests. Trusted Worldwide.",
   description:
     "Seafood International Exports is a specialized trader and consolidator of high-quality fresh and frozen seafood. From certified aquaculture farms to responsible wild-caught fisheries, we connect reliable producers with importers, distributors, and retailers in more than 40 countries.",
-  email: "export@seafood-international.com",
-  phone: "+971 4 555 1234",
-  address: "Office 1204, Harbour Trade Tower, Jebel Ali Free Zone, Dubai",
-  country: "United Arab Emirates",
-  officeHours: "Sunday to Friday, 9:00–18:00 (Gulf Standard Time)",
+  email: "royalseafoodint@gmail.com",
+  phone: "+8801927670156",
+  address: "Khan Tower, M A Majid Soroni, Khulna, Bangladesh",
+  country: "Bangladesh",
+  officeHours: "09:00 AM – 19.00 PM Saturday- Thursday",
+  socialMedia: {
+    facebook: "https://www.facebook.com/profile.php?id=61580200603087"
+  },
 };
 
 
