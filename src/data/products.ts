@@ -6,10 +6,6 @@ export const products: Product[] = [
     slug: "head-on-shell-on-iqf",
     name: "Head On Shell On IQF",
     category: "black-tiger",
-
-    shortDescription: "",
- 
-
     specifications: {
       type: "Shrimp",
       scientificName: "Penaeus monodon",
@@ -40,7 +36,6 @@ export const products: Product[] = [
     name: "Headless Shell On Block",
     category: "black-tiger",
 
-    shortDescription: "",
 
     description:
       "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
@@ -78,7 +73,6 @@ export const products: Product[] = [
     name: "Peeled & Deveined",
     category: "black-tiger",
 
-    shortDescription: "",
     description: "",
 
     specifications: {
@@ -111,7 +105,6 @@ export const products: Product[] = [
     name: "PND Tail On Skewer",
     category: "black-tiger",
 
-    shortDescription: "",
 
     description:
       "Black tiger shrimp (Penaeus monodon) is a large, tropical and subtropical species of shrimp known for its distinctive dark stripes and large size, often reaching up to 33 cm in length. It is a popular seafood item due to its mild, sweet flavor and firm, meaty texture. Black tiger shrimp is also known for its versatility in cooking methods, as it can be grilled, sautéed, fried, or used in a variety of seafood dishes.",
@@ -179,7 +172,6 @@ export const products: Product[] = [
     name: "PND Cooked",
     category: "black-tiger",
 
-    shortDescription: "",
 
     description:
       "Black tiger shrimp (Penaeus monodon) is a large, tropical and subtropical species of shrimp known for its distinctive dark stripes and large size, often reaching up to 33 cm in length. It is a popular seafood item due to its mild, sweet flavor and firm, meaty texture. Black tiger shrimp is also known for its versatility in cooking methods, as it can be grilled, sautéed, fried, or used in a variety of seafood dishes.",
@@ -216,7 +208,6 @@ export const products: Product[] = [
     name: "PND Tail On Skewer Cooked",
     category: "black-tiger",
 
-    shortDescription: "",
 
 
     specifications: {
@@ -271,10 +262,7 @@ export const products: Product[] = [
   id: "9",
   slug: "head-on-shell-with-claw",
   name: "HEAD ON SHELL WITH CLAW",
-  category: "fresh-water-scampi",
-
-  shortDescription: "",
-  
+  category: "fresh-water-scampi",  
   description:
     "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
 
@@ -304,10 +292,7 @@ export const products: Product[] = [
   id: "10",
   slug: "fw-headless-shell-on-block",
   name: "FW HEADLESS SHELL ON BLOCK",
-  category: "fresh-water-scampi",
-
-  shortDescription: "",
-  description: "",
+  category: "fresh-water-scampi",  description: "",
 
   specifications: {
     type: "Shrimp",
@@ -338,9 +323,6 @@ export const products: Product[] = [
   slug: "head-less-shell-on-ezp",
   name: "HEAD LESS SHELL ON EZP",
   category: "fresh-water-scampi",
-
-  shortDescription: "",
-
   description:
     "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
 
@@ -373,9 +355,6 @@ export const products: Product[] = [
   slug: "raw-head-on-shell",
   name: "Raw Head-On Shell",
   category: "vannamei",
-
-  shortDescription: "",
-
   description:
     "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
 
@@ -405,9 +384,6 @@ export const products: Product[] = [
   slug: "cooked-head-on-shell-on",
   name: "Cooked Head-On Shell-On ",
   category: "vannamei",
-
-  shortDescription: "",
-
   description:
     "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
 
@@ -438,9 +414,6 @@ export const products: Product[] = [
   slug: "cooked-head-on-shell-on",
   name: "Cooked Head-On Shell-On",
   category: "vannamei",
-
-  shortDescription: "",
-
   description:
     "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
 

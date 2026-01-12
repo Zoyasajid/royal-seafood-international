@@ -5,8 +5,7 @@ export type Product = {
   slug: string;
   name: string;
   category: ProductCategory | string;
-  shortDescription: string;
-  description: string;
+  description?: string;
   specifications: {
     type: string;
     scientificName: string;
