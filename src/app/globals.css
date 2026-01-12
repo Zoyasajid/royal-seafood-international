@@ -16,6 +16,12 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
 }
+.btn-bg {
+  background-color: rgba(28, 134, 62, 0.06);
+}
+.btn-bg:hover {
+  background-color: var(--color-primary);
+}
 .product-dropdown .ant-dropdown-menu {
   width: 220px;
   padding: 8px;
@@ -32,5 +38,6 @@ body {
 }
 
 .product-dropdown .ant-dropdown-menu-item:hover {
-  background-color: var(--color-primary); /* pink hover */
+ background-color: var(--color-primary) !important; 
+  color: white; 
 }

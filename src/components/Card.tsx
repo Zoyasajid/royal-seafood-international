@@ -8,8 +8,8 @@ type CardProps = {
 
 export function Card({ image, title, onViewDetail }: CardProps) {
   return (
-    <article className="group flex cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-      <div className="relative h-56 w-full overflow-hidden">
+    <article className="group flex cursor-pointer flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"    onClick={onViewDetail}>
+      <div className="relative h-72 w-full overflow-hidden">
         <Image
           src={image}
           alt={title}
@@ -24,8 +24,8 @@ export function Card({ image, title, onViewDetail }: CardProps) {
         <div className="mt-4 w-full">
           <button
             type="button"
-            onClick={onViewDetail}
-            className="inline-flex w-full py-3.5 px-8 items-center cursor-pointer justify-center hover:text-white  bg-[#43ff64d9]  text-sm font-semibold text-primary shadow-sm transition hover:bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+           
+            className="btn-bg inline-flex w-full py-3.5 px-8 items-center cursor-pointer justify-center hover:text-white  text-sm font-semibold text-primary shadow-sm transition hover:bg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
           >
             View Details
           </button>

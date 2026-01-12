@@ -1,50 +1,60 @@
-export type ProductCategory =
-  | "Fresh Fish"
-  | "Frozen Shrimp"
-  | "Lobster"
-  | "Crab"
-  | "Salmon"
-  | "Cephalopods";
-
-export type Product = {
-  url?:string;
-  id: string;
-  slug: string;
-  name: string;
-  category: string;
-  shortDescription: string;
-  description: string;
-  origin: string;
-  storage: string;
-  packaging: string;
-  exportQuality: string;
-  headerImage?:string;
-  images: string[];
-  isPremium?: boolean;
-};
+import { Product } from "@/types/product";
 
 export const products: Product[] = [
   {
     id: "1",
-    slug: "atlantic-salmon-fillets",
-    name: "Atlantic Salmon Fillets",
+    slug: "head-on-shell-on-iqf",
+    name: "Head On Shell On IQF",
     category: "black-tiger",
 
-    shortDescription:
-      "Premium skin-on Atlantic salmon fillets, trimmed to export specifications.",
-
-    description:
-      "Our Atlantic Salmon Fillets are sourced from certified farms operating under strict environmental and quality standards. Each fillet is hand-trimmed, individually quick frozen (IQF), and graded for color, fat content, and texture to meet leading retail and HORECA requirements worldwide.",
+    shortDescription: "",
+ 
 
     specifications: {
-      type: "Fish",
-      scientificName: "Salmo salar",
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "IQF, Semi IQF",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      semiIqf: "8/12, 13/15, 16/20, 21/30, 31/40, 41/50",
+      block: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50",
+    },
+
+  
+    images: [
+      "/images/products/black-tiger/head-on-shell.webp",
+      "/images/products/black-tiger/head-on-shell-2.webp",
+      "/images/products/black-tiger/head-on-shell-3.webp",
+    ],
+  },
+  {
+    id: "2",
+    slug: "headless-shell-on-block",
+    name: "Headless Shell On Block",
+    category: "black-tiger",
+
+    shortDescription: "",
+
+    description:
+      "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Macrobrachium rosenbergii",
       processingType: "IQF, Block",
       shelfLife: "24 Months below -18°C",
-      productionMethod: "Farm Raised",
-      glazing: "As per customer requirement",
-      origin: "Norway / Scotland",
-      packing: "IVP / IQF, 10 kg master carton",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
     },
 
     sizes: {
@@ -53,138 +63,411 @@ export const products: Product[] = [
     },
 
     keyFeatures:
-      "Rich in omega-3 fatty acids, high protein content, firm texture, and mild flavor. Ideal for grilling, baking, and premium seafood applications.",
+      "Freshwater scampi shrimp have a distinctive appearance, with long antennae and a blue-green tint to their shells. They are one of the largest freshwater shrimp species and can weigh up to half a kilogram. Freshwater scampi shrimp are high in protein and low in fat, making them a healthy seafood choice. They are also known for their sweet and delicate flavor and are often used in a variety of Asian dishes.",
 
     images: [
-      "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3687503/pexels-photo-3687503.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/products/black-tiger/head-less-shell.webp",
+
+      "/images/products/black-tiger/head-less-shell-2.webp",
+      "/images/products/black-tiger/head-less-shell-3.webp",
     ],
   },
-
-
   {
-    id: "2",
-    slug: "headless-shell-on-block",
-    name: "HEADLESS SHELL ON BLOCK",
+    id: "3",
+    slug: "peeled-and-deveined",
+    name: "Peeled & Deveined",
     category: "black-tiger",
-    shortDescription:
-      "Premium skin-on Atlantic salmon fillets, trimmed to export specifications.",
-    description:
-      "Our Atlantic Salmon Fillets are sourced from certified farms operating under strict environmental and quality standards. Each fillet is hand-trimmed, individually quick frozen (IQF), and graded for color, fat content, and texture to meet leading retail and HORECA (hotel, restaurant, catering) requirements worldwide.",
-    origin: "Norway / Scotland",
-    storage: "Frozen at -18°C or below",
-    packaging: "IVP / IQF, 10 kg master carton",
-    exportQuality: "EU, HACCP, BRC, and FDA compliant",
+
+    shortDescription: "",
+    description: "",
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Macrobrachium rosenbergil",
+      processingType: "IQF, Block",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      iqf: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+      block: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+    },
+
+    keyFeatures: "",
     images: [
-      "https://images.pexels.com/photos/3296273/pexels-photo-3296273.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3687503/pexels-photo-3687503.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    ],
-    isPremium: true,
-  },
-  {
-    id: "vannamei-shrimp-pdto",
-    slug: "vannamei-shrimp-pdto",
-    name: "Vannamei Shrimp PD / PTO",
-    category: "vannamei",
-    shortDescription:
-      "Farm-raised white shrimp, peeled deveined tail-on, block or IQF frozen.",
-    description:
-      "Vannamei shrimp processed in state-of-the-art EU-approved plants. Available in a full range of counts and presentations (PUD, PD, PTO). Brine and glazing are carefully controlled to guarantee consistent net weight and excellent texture upon thawing.",
-    origin: "India / Vietnam / Ecuador",
-    storage: "Frozen at -18°C or below",
-    packaging: "1 kg retail bags or 10 x 1 kg master carton",
-    exportQuality: "HACCP, BAP, ASC, and FDA certified facilities",
-    images: [
-      "https://images.pexels.com/photos/5409023/pexels-photo-5409023.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3731474/pexels-photo-3731474.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3296272/pexels-photo-3296272.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    ],
-    isPremium: true,
-  },
-  {
-    id: "whole-cleaned-squid",
-    slug: "whole-cleaned-squid",
-    name: "Whole Cleaned Squid",
-    category: "Cephalopods",
-    shortDescription:
-      "Individually frozen whole cleaned squid for grilling and frying applications.",
-    description:
-      "Whole cleaned squid with head, viscera, and cartilage removed. Bright, natural color with firm texture and excellent frying performance. Ideal for rings, tubes, and grilled whole squid dishes in Mediterranean and Asian cuisines.",
-    origin: "India / China",
-    storage: "Frozen at -18°C or below",
-    packaging: "IQF 20% glazing, 10 kg master carton",
-    exportQuality: "EU-approved plant, HACCP implemented",
-    images: [
-      "https://images.pexels.com/photos/6287528/pexels-photo-6287528.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/6287527/pexels-photo-6287527.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/7732536/pexels-photo-7732536.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    ],
-    isPremium: true,
-  },
-  {
-    id: "whole-cleaned-crab",
-    slug: "whole-cleaned-crab",
-    name: "Whole Cleaned Blue Crab",
-    category: "Crab",
-    shortDescription:
-      "Frozen whole cleaned blue crab, rich in meat, perfect for steam and boil.",
-    description:
-      "Wild-caught blue swimmer crab, cleaned and processed within hours of landing to preserve natural sweetness and texture. Packed for foodservice buyers requiring consistent meat yield and strong shell integrity.",
-    origin: "Indonesia / Philippines",
-    storage: "Frozen at -18°C or below",
-    packaging: "5 kg and 10 kg bulk cartons",
-    exportQuality: "HACCP certified with regular third-party audits",
-    images: [
-      "https://images.pexels.com/photos/5409020/pexels-photo-5409020.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3296271/pexels-photo-3296271.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/7519039/pexels-photo-7519039.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/products/black-tiger/peeled-and-deveined.webp",
+      "/images/products/black-tiger/peeled-and-deveined-2.webp",
+      "/images/products/black-tiger/peeled-and-deveined-3.webp",
     ],
   },
   {
-    id: "pacific-white-fish",
-    slug: "pacific-white-fish",
-    name: "Pacific White Fish Portions",
-    category: "Fresh Fish",
-    shortDescription:
-      "Boneless, skinless white fish portions ideal for retail and catering.",
+    id: "4",
+    slug: "pnd-tail-on-skewer",
+    name: "PND Tail On Skewer",
+    category: "black-tiger",
+
+    shortDescription: "",
+
     description:
-      "Versatile white fish with mild taste, trimmed and portion-controlled for consistent cooking results. Suitable for pan-frying, baking, and value-added breaded products in modern retail programs.",
-    origin: "Chile / Peru",
-    storage: "Fresh chilled at 0–2°C or frozen at -18°C",
-    packaging: "Vacuum packed portions, 5 kg and 10 kg cartons",
-    exportQuality: "MSC-certified origin options available",
+      "Black tiger shrimp (Penaeus monodon) is a large, tropical and subtropical species of shrimp known for its distinctive dark stripes and large size, often reaching up to 33 cm in length. It is a popular seafood item due to its mild, sweet flavor and firm, meaty texture. Black tiger shrimp is also known for its versatility in cooking methods, as it can be grilled, sautéed, fried, or used in a variety of seafood dishes.",
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "IQF",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      iqf: "31/40, 41/50, 51/60",
+    
+    },
+
+    keyFeatures:
+      "The black tiger shrimp has a black and white striped pattern on its shell, which is a distinctive feature of this species. They are one of the largest species of shrimp, with an average size of 20-25 cm. Black tiger shrimp is a good source of protein and low in fat, making it a healthy seafood option. They are mainly farmed in Asia, but can also be found in the wild in the Indo-Pacific region.",
+
     images: [
-      "https://images.pexels.com/photos/3296280/pexels-photo-3296280.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3296270/pexels-photo-3296270.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/3296279/pexels-photo-3296279.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/products/black-tiger/pnd-tail-on-skewer.webp",
+      "/images/products/black-tiger/pnd-tail-on-skewer-2.webp",
+      "/images/products/black-tiger/pnd-tail-on-skewer-3.webp",
+    ],
+  },
+
+  {
+    id: "5",
+    slug: "body-peeled-tail-on-block",
+    name: "Body Peeled Tail On Block",
+    category: "black-tiger",
+
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "Block, Semi IQF",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to server under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      iqf: "8/12, 13/15, 16/20, 21/30, 31/40, 41/50",
+      block: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50",
+    },
+
+
+    images: [
+      "/images/products/black-tiger/body-peeled.webp",
+      "/images/products/black-tiger/body-peeled-2.webp",
     ],
   },
   {
-    id: "cold-water-lobster-tails",
-    slug: "cold-water-lobster-tails",
-    name: "Cold Water Lobster Tails",
-    category: "Lobster",
-    shortDescription:
-      "Premium cold water lobster tails graded for the fine dining and cruise sectors.",
+    id: "6",
+    slug: "pnd-cooked",
+    name: "PND Cooked",
+    category: "black-tiger",
+
+    shortDescription: "",
+
     description:
-      "Individually frozen lobster tails with firm, sweet meat and consistent shell presentation. Carefully graded and packed to supply luxury hospitality, cruise, and airline catering clients worldwide.",
-    origin: "Canada / USA (North Atlantic)",
-    storage: "Frozen at -25°C blast frozen, stored at -18°C",
-    packaging: "5 kg master carton, multiple counts per pound available",
-    exportQuality: "Processed in BRC and MSC-certified facilities",
+      "Black tiger shrimp (Penaeus monodon) is a large, tropical and subtropical species of shrimp known for its distinctive dark stripes and large size, often reaching up to 33 cm in length. It is a popular seafood item due to its mild, sweet flavor and firm, meaty texture. Black tiger shrimp is also known for its versatility in cooking methods, as it can be grilled, sautéed, fried, or used in a variety of seafood dishes.",
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "IQF, Block",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      iqf: "13/15, 16/20, 21/30, 31/40, 41/50",
+      block: "13/15, 16/20, 21/25, 31/40, 41/50",
+    },
+
+    keyFeatures:
+      "The black tiger shrimp has a black and white striped pattern on its shell, which is a distinctive feature of this species. They are one of the largest species of shrimp, with an average size of 20-25 cm. Black tiger shrimp is a good source of protein and low in fat, making it a healthy seafood option. They are mainly farmed in Asia, but can also be found in the wild in the Indo-Pacific region.",
+
     images: [
-      "https://images.pexels.com/photos/3296278/pexels-photo-3296278.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/8478055/pexels-photo-8478055.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      "https://images.pexels.com/photos/6287301/pexels-photo-6287301.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "/images/products/black-tiger/pnd-cooked.webp",
+      "/images/products/black-tiger/pnd-cooked-2.webp",
+      "/images/products/black-tiger/pnd-cooked-3.webp",
     ],
-    isPremium: true,
   },
+  {
+    id: "7",
+    slug: "pnd-tail-on-skewer-cooked",
+    name: "PND Tail On Skewer Cooked",
+    category: "black-tiger",
+
+    shortDescription: "",
+
+
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "IQF",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to server under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      iqf: "31/40, 41/50, 51/60",
+    
+    },
+
+
+    images: [
+      "/images/products/black-tiger/pnd-tail.webp",
+
+    ],
+  },
+  {
+    id: "8",
+    slug: "head-on-shell-on-cooked",
+    name: "Head On Shell On Cooked",
+    category: "black-tiger",
+    specifications: {
+      type: "Shrimp",
+      scientificName: "Penaeus monodon",
+      processingType: "IQF, Semi IQF",
+      shelfLife: "24 Months below -18°C",
+      productionMethod: "Farm Raised Shrimps",
+      glazing: "As per customer’s requirement",
+      origin: "Bangladesh",
+      packing:
+        "We are ready to serve under our own brand or as per buyer’s requirement",
+    },
+
+    sizes: {
+      semiIqf:"8/12, 13/15, 16/20, 21/30, 31/40, 41/50",
+   
+      block: "8/12, 13/15, 16/20, 21/25, 26/30, 31/40, 41/50",
+    },
+
+   
+    images: ["/images/products/black-tiger/head-on-shell-cooked.webp"],
+  },{
+  id: "9",
+  slug: "head-on-shell-with-claw",
+  name: "HEAD ON SHELL WITH CLAW",
+  category: "fresh-water-scampi",
+
+  shortDescription: "",
+  
+  description:
+    "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Macrobrachium rosenbergil",
+    processingType: "IQF, Semi IQF",
+    shelfLife: "24 Months below -18°C",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+  },
+
+  sizes: {
+    semiIqf: "1/2, 2/4, 4/6, 6/8, U/7, U/10, U/15, 8/12, 13/15, 16/20",
+    block: "1/2, 2/4, 4/6, 6/8, U/5, U/7, U/10, U/15, 8/12, 13/15, 16/20",
+  },
+
+  keyFeatures:
+    "Freshwater scampi shrimp have a distinctive appearance, with long antennae and a blue-green tint to their shells. They are one of the largest freshwater shrimp species and can weigh up to half a kilogram. Freshwater scampi shrimp are high in protein and low in fat, making them a healthy seafood choice. They are also known for their sweet and delicate flavor and are often used in a variety of Asian dishes.",
+
+    images: ["/images/products/fresh-water-scrampi/head-on-shell-with-claw.webp"],
+
+}
+,{
+  id: "10",
+  slug: "fw-headless-shell-on-block",
+  name: "FW HEADLESS SHELL ON BLOCK",
+  category: "fresh-water-scampi",
+
+  shortDescription: "",
+  description: "",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Macrobrachium rosenbergii",
+    processingType: "Block, IQF",
+    shelfLife: "24 Months below -18°C",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+    packaging: "Box, Polly Bag",
+  },
+
+  sizes: {
+    semiIqf: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+    block: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+  },
+
+  keyFeatures: "",
+
+    images: ["/images/products/fresh-water-scrampi/headless-shell-on-block.webp",
+    "/images/products/fresh-water-scrampi/headless-shell-on-block-2.webp",
+    "/images/products/fresh-water-scrampi/headless-shell-on-block-3.webp"
+    ],
+}
+,{
+  id: "11",
+  slug: "head-less-shell-on-ezp",
+  name: "HEAD LESS SHELL ON EZP",
+  category: "fresh-water-scampi",
+
+  shortDescription: "",
+
+  description:
+    "Freshwater scampi shrimp (Macrobrachium rosenbergii) is a species of large freshwater shrimp, also known as the giant river prawn or Malaysian prawn. They are native to the rivers and streams of Southeast Asia and can grow up to 30 cm in length. Freshwater scampi shrimp have a sweet and delicate flavor and are popular in many Asian cuisines, often served grilled or in curries.",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Macrobrachium rosenbergil",
+    processingType: "IQF, Block",
+    shelfLife: "24 Months below -18°C",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+  },
+
+  sizes: {
+    iqf: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+    block: "U/3, U/5, 4/6, 6/8, 8/12, 13/15, 16/20, 21/25, 26/30",
+  },
+
+  keyFeatures:
+    "Freshwater scampi shrimp have a distinctive appearance, with long antennae and a blue-green tint to their shells. They are one of the largest freshwater shrimp species and can weigh up to half a kilogram. Freshwater scampi shrimp are high in protein and low in fat, making them a healthy seafood choice. They are also known for their sweet and delicate flavor and are often used in a variety of Asian dishes.",
+
+    images: ["/images/products/fresh-water-scrampi/head-less-shell-on.webp",
+      "/images/products/fresh-water-scrampi/head-less-shell-on-2.webp"
+    ],
+
+}
+,{
+  id: "12",
+  slug: "raw-head-on-shell",
+  name: "Raw Head-On Shell",
+  category: "vannamei",
+
+  shortDescription: "",
+
+  description:
+    "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Litopenaeus vannamei",
+    processingType: "IQF, Semi IQF",
+    shelfLife: "6 months below -18°C (0°F)",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+  },
+
+  sizes: {
+    semiIqf: "16/20, 21/30, 31/40, 41/50, 51/60",
+    block: "16/20, 21/30, 31/40, 41/50, 51/60",
+  },
+
+  keyFeatures:
+    "Fresh Vannamei shrimp have a white, semi-transparent shell with a blue-grey tail. They are typically small to medium-sized and can reach up to 23 cm in length. They have a sweet, mild flavor and a firm, slightly crunchy texture. Vannamei shrimp are a good source of protein, low in fat, and can be prepared using a variety of cooking methods.",
+
+     images: ["/images/products/vannamei/raw-head-on-shell.webp"]
+}
+,{
+  id: "13",
+  slug: "cooked-head-on-shell-on",
+  name: "Cooked Head-On Shell-On ",
+  category: "vannamei",
+
+  shortDescription: "",
+
+  description:
+    "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Litopenaeus vannamei",
+    processingType: "IQF, Semi IQF",
+    shelfLife: "6 months below -18°C (0°F)",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+  },
+
+  sizes: {
+    iqf: "13/15, 16/20, 21/30, 31/40, 41/50, 51/60",
+    block: "13/15, 16/20, 21/30, 31/40, 41/50, 51/60",
+  },
+
+  keyFeatures:
+    "Fresh Vannamei shrimp have a white, semi-transparent shell with a blue-grey tail. They are typically small to medium-sized and can reach up to 23 cm in length. They have a sweet, mild flavor and a firm, slightly crunchy texture. Vannamei shrimp are a good source of protein, low in fat, and can be prepared using a variety of cooking methods.",
+
+ 
+     images: ["/images/products/vannamei/raw-headless-shell-on.webp"]
+}
+,{
+  id: "14",
+  slug: "cooked-head-on-shell-on",
+  name: "Cooked Head-On Shell-On",
+  category: "vannamei",
+
+  shortDescription: "",
+
+  description:
+    "Vannamei shrimp (Litopenaeus vannamei), also known as whiteleg shrimp, is a species of shrimp that is native to the Pacific coast of Mexico and Central and South America. They are a popular and highly cultivated species of shrimp due to their mild flavor, firm texture, and fast growth rate. Vannamei shrimp are known for their distinctive white color, which is why they are also referred to as whiteleg shrimp. They are commonly used in a variety of seafood dishes and are a good source of protein and other nutrients.",
+
+  specifications: {
+    type: "Shrimp",
+    scientificName: "Litopenaeus vannamei",
+    processingType: "IQF, Semi IQF",
+    shelfLife: "6 months below -18°C (0°F)",
+    productionMethod: "Farm Raised Shrimps",
+    glazing: "As per customer’s requirement",
+    origin: "Bangladesh",
+    packing: "We are ready to serve under our own brand or as per buyer’s requirement",
+  },
+
+  sizes: {
+    semiIqf: "16/20, 21/30, 31/40, 41/50, 51/60",
+    block: "16/20, 21/30, 31/40, 41/50, 51/60",
+  },
+
+  keyFeatures:
+    "Fresh Vannamei shrimp have a white, semi-transparent shell with a blue-grey tail. They are typically small to medium-sized and can reach up to 23 cm in length. They have a sweet, mild flavor and a firm, slightly crunchy texture. Vannamei shrimp are a good source of protein, low in fat, and can be prepared using a variety of cooking methods.",
+
+     images: ["/images/products/vannamei/cooked-head-on-shell-on.webp"]
+}
+
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
 }
-
-

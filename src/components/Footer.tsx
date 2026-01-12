@@ -34,11 +34,11 @@ export function Footer() {
 
 
         <div className="grid grid-cols-1 md:grid-cols-3 items-start gap-6">
-          <h3 className="text-sm font-semibold uppercase">
+          <h3 className="text-base font-semibold uppercase">
             Contact Us
           </h3>
 
-          <h3 className="text-sm font-semibold uppercase md:text-center">
+          <h3 className="text-base font-semibold uppercase md:text-center">
             Navigation
           </h3>
 
@@ -64,26 +64,30 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-6">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <ul className="space-y-1 text-sm">
+          <ul className="space-y-1 text-base ">
             {footerData.contact.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
           </ul>
 
-          <ul className="space-y-1 text-sm md:text-center">
+          <ul className="space-y-1 text-base flex justify-center">
+            <div>
+
             {footerData.navigation.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} >
                 <Link href={link.href} className="hover:underline">
                   {link.label}
                 </Link>
               </li>
             ))}
+              </div>
+
           </ul>
 
           <div />
         </div>
 
-        <div className=" space-y-4 text-sm">
+        <div className=" space-y-4 text-base">
           <div>
             <h4 className="font-semibold uppercase mb-1">Location</h4>
             <p>123 Seafood Street, Karachi, Pakistan</p>
@@ -100,7 +104,7 @@ export function Footer() {
 
       <div className="border-t border-gray-300" />
 
-      <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-gray-600 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-gray-600 flex flex-col base:flex-row items-center justify-between gap-4">
         <p>© 2026 Royal Sea Food International</p>
       </div>
 

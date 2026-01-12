@@ -26,17 +26,13 @@ export function PremiumCard({ product }: PremiumCardProps) {
       </div>
       <div className="flex flex-1 flex-col px-5 pb-5 pt-4 text-center text-black">
         <h3 className="text-2xl font-semibold ">{product.name}</h3>
-{/* 
-        <p className="mt-4 line-clamp-3 text-base text-gray-500">
-          {product.description}
-        </p> */}
-        <div className="mt-6 flex items-center justify-between p-4 rounded-md hover:bg-primary bg-accent/80 ">
+        <div className="mt-6 flex items-center justify-between p-4 rounded-md hover:bg-primary bg-opacity-10   cursor-pointer text-primary  btn-bg hover:text-white ">
           <Link
             href={`/products/${product.url}`}
             className="text-xs font-semibold cursor-pointer transition hover:font-semibold  w-full "
           >
-            <div className="flex justify-between text-white">
-              <p className="text-base">View Details</p>
+            <div className="flex justify-between ">
+              <p className="text-base ">View Details</p>
               <RightOutlined />
             </div>
           </Link>

@@ -50,6 +50,7 @@ export function Header() {
             if (item.label === "Products") {
               return (
                 <Dropdown
+                
                 rootClassName="product-dropdown"
                   key="products"
                   menu={{ items: productMenu }}
@@ -76,9 +77,7 @@ export function Header() {
                 }`}
               >
                 {item.label}
-                {isActive && (
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 rounded-full bg-sky-400" />
-                )}
+            
               </Link>
             );
           })}

@@ -42,7 +42,7 @@ export default function ProductDetailPage() {
         <h1 className="text-[42px] font-semibold text-gray-900">
           {product.name.toUpperCase()}
         </h1>
-        <p className="mt-1 text-xl uppercase tracking-[0.3em] text-gray-500">
+        <p className="mt-1 text-xl uppercase tracking-[0.3em] ">
           {product.category.replace("-", " ")}
         </p>
       </div>
@@ -74,16 +74,16 @@ export default function ProductDetailPage() {
             </button>
           </div>
 
-          <div className="mt-4 flex gap-3 max-w-xl mx-auto">
+          <div className="mt-4 flex gap-3 max-w-xl mx-auto ">
             {product.images.map((img, i) => (
               <button
                 key={i}
                 onClick={() => setActiveImage(i)}
-                className={`relative h-24 flex-1 rounded-lg border ${
+                className={`relative h-[116px] w-[calc((100%_-_16px)/3)] rounded-lg border ${
                   activeImage === i ? "border-emerald-600" : "border-gray-200"
                 }`}
               >
-                <Image src={img} alt="" fill className="object-contain" />
+                <Image src={img} alt="" fill className="object-contain " />
               </button>
             ))}
           </div>
@@ -94,10 +94,10 @@ export default function ProductDetailPage() {
             Specifications
           </h3>
 
-          <ul className="space-y-2 text-gray-700">
+          <ul className="space-y-2 text-gray-700 text-sm">
             {Object.entries(specifications).map(([key, value]) => (
-              <li key={key}>
-                <strong>{key.replace(/([A-Z])/g, " $1")}:</strong> {value}
+              <li key={key} className='flex gap-2'>
+                <p className="font-semibold capitalize text-black">{key.replace(/([A-Z])/g, " $1")}:</p> {value}
               </li>
             ))}
           </ul>
@@ -106,24 +106,34 @@ export default function ProductDetailPage() {
             <h4 className="mb-2 text-xl font-semibold uppercase">
               Available Sizes
             </h4>
-            <p>IQF: {sizes.iqf}</p>
-            <p>Block: {sizes.block}</p>
+            {sizes.semiIqf && (
+              <p className='text-sm'><span className="font-semibold">Semi IQF:</span> {sizes.semiIqf}</p>
+            )}
+            {sizes.iqf && <p className="text-sm"><span className="font-semibold">IQF:</span> {sizes.iqf}</p>}
+     
+     {sizes.block&& (
+      <p className="text-sm mt-1"><span className="font-semibold">Block:</span> {sizes.block}</p>
+     )}      
           </div>
+{product.description && (
 
-          <div className="mt-14 max-w-4xl">
+          <div className="mt-6 max-w-4xl">
             <h3 className="mb-3 text-xl font-semibold uppercase">
               Description
             </h3>
             <p className="text-gray-700">{product.description}</p>
           </div>
-
+)}
+{product.keyFeatures && (
+  
           <div className="mt-8 max-w-4xl">
             <Collapse bordered={false} expandIconPosition="end">
-              <Panel header="KEY FEATURES AND BENEFITS" key="1">
-                <p className="text-gray-700">{product.keyFeatures}</p>
+              <Panel header="KEY FEATURES AND BENEFITS" key="1" className="text-xl bg-foreground">
+                <p className="text-gray-700 text-base">{product.keyFeatures}</p>
               </Panel>
             </Collapse>
           </div>
+)}
         </div>
       </div>
     </div>
