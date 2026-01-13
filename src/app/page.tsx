@@ -6,6 +6,8 @@ import VannameiImg from "@/../public/images/Vannamei.webp"
 import scampiImg from "@/../public/images/scampi.webp"
 import blackTigerImg from "@/../public/images/back-tiger.jpg"
 import PremiumProducts from "@/components/view/PremiumProducts";
+import AboutSection from "@/components/view/AboutSection";
+import ServiceSection from "@/components/view/ServiceSection";
 export default function Home() {
   const premiumProducts = products.filter((p) => p.isPremium).slice(0, 3);
 const ProductCategory =[
@@ -33,8 +35,9 @@ const ProductCategory =[
       <HeroSlider />
 
       <PremiumProducts/>
-
-      <section
+<AboutSection/>
+<ServiceSection/>
+      {/* <section
         aria-labelledby="about-company-heading"
         className="overflow-hidden rounded-3xl  px-6 py-8 sm:px-10 sm:py-10"
       >
@@ -58,7 +61,7 @@ const ProductCategory =[
           </div>
 
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
