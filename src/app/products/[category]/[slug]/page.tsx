@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Collapse } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import { products } from "@/data/products";
@@ -35,13 +35,22 @@ export default function ProductDetailPage() {
     );
   };
   const related = products.filter(
-    (p) => p.category === product.category && p.slug !== product.slug
+    (p) => p.category === "black-tiger" && p.slug !== product.slug
   );
   const { specifications, sizes } = product;
+  useEffect(() => {
+    if (!product?.images?.length) return;
+
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % product.images.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [product]);
 
   return (
     <div>
-      <div className="mx-auto max-w-7xl px-4 py-14 text-black">
+      <div className="mx-auto max-w-380 px-4 py-14 text-black">
         <div className="mb-12 text-center">
           <h1 className="text-[42px] font-semibold text-gray-900">
             {product.name.toUpperCase()}
@@ -160,7 +169,7 @@ export default function ProductDetailPage() {
       <div className="my-5">
         {related.length > 0 && (
           <div className="bg-foreground">
-            <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6  mt-14">
+            <section className="mx-auto max-w-380 px-4 py-10 sm:px-6  mt-14">
               <h3 className="my-8 text-black text-4xl font-semibold">
                 Also you may like
               </h3>

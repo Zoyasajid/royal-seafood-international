@@ -2,12 +2,14 @@ import React from "react";
 import { Button } from "antd";
 import { CheckCircleOutlined, ArrowRightOutlined } from "@ant-design/icons";
 import CEOAvatar from "@/../public/images/ceo-avatar.png";
+import AboutUSImage_1 from "@/../public/images/about-us-1.jpeg";
+import AboutUSImage_2 from "@/../public/images/about-us-2.jpeg";
 import Image from "next/image";
 const aboutData = {
   experienceYears: "7+",
   heading: "Work as a Foregin Buyer's local Agent",
   description:
-    "We are passionate about delivering exceptional cleaning services to create spotless, comfortable spaces for homes and businesses. Driven by purpose and creativity, we craft dreams, stay rooted in innovation.",
+    "Royal seafood international is a seafood consulting firm that facilitates the buying process of seafood from Bangladesh, India and Vietnam. Since 2019, we are working as  foreign buyer’s local agent by sourcing the best quality seafood for importers, wholesalers and supermarkets all over the globe. Our practice is overseen by a team of highly specialized professionals who ensure the delivery of high quality products on time and at volume discount prices.",
   features: [
     "Acts as fpreign uyer's local agent",
     "Pre shipment inspection all the time",
@@ -25,18 +27,16 @@ const aboutData = {
     image: CEOAvatar,
   },
   images: {
-    mainWorker: "/worker-cleaning.jpg",
-    detailView: "/trash-cleaning.jpg",
+    mainWorker:AboutUSImage_1 ,
+    detailView: AboutUSImage_2,
   },
 };
 const AboutSection = () => {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16 font-sans">
+    <section className=" py-16 font-sans">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        {/* Left Side: Image Gallery */}
-        <div className="relative flex gap-4 h-125">
-          {/* Experience Badge */}
-          <div className="absolute top-0 right-10 z-10 bg-white p-6 shadow-xl border-l-4 ">
+        <div className="relative flex gap-4 h-full">
+          <div className="absolute top-0 right-10 z-10 bg-white p-6 shadow-xl border-l-4 w-56">
             <h2 className="text-4xl font-bold leading-none text-primary">
               {aboutData.experienceYears}
             </h2>
@@ -45,33 +45,29 @@ const AboutSection = () => {
             </p>
           </div>
 
-          {/* Main Large Image */}
-          <div className="w-1/2 relative rounded-sm overflow-hidden border-8 border-white shadow-sm">
-            <img
-              src={aboutData.images.mainWorker}
+          <div className="w-1/2 relative rounded-sm overflow-hidden hadow-sm">
+            <Image
+              src={aboutData.images.detailView}
               alt="Cleaning Service"
               className="w-full h-full object-cover"
             />
           </div>
 
-          {/* Secondary Vertical Image */}
           <div className="w-1/2 pt-20">
-            <div className="h-full rounded-sm overflow-hidden border-8 border-white shadow-sm">
-              <img
-                src={aboutData.images.detailView}
+            <div className="h-full rounded-sm overflow-hidden  shadow-sm">
+              <Image
+                src={aboutData.images.mainWorker}
                 alt="Cleaning Detail"
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
 
-          {/* Decorative Plane Icon Path (Optional SVG) */}
           <div className="absolute top-0 right-0 opacity-20 -mr-10">
             <img src="/plane-path.svg" alt="decoration" className="w-24" />
           </div>
         </div>
 
-        {/* Right Side: Content */}
         <div className="flex flex-col space-y-3">
           <div className=" text-primary font-bold uppercase tracking-wider text-base ">
          
@@ -82,11 +78,10 @@ const AboutSection = () => {
             {aboutData.heading}
           </h1>
 
-          <p className="text-gray-500 leading-relaxed text-lg">
+          <p className="text-gray-500 leading-relaxed text-base">
             {aboutData.description}
           </p>
 
-          {/* CEO Box */}
           <div className="p-6 rounded-lg border border-gray-100 flex items-start gap-4">
           
                <Image
@@ -106,10 +101,10 @@ const AboutSection = () => {
                 "{aboutData.ceo.statement}"
               </p>
               <p className="text-sm">
-                <span className="font-bold ">
+                <span className="font-bold text-primary">
                   {aboutData.ceo.role}
                 </span>
-                <span className="font-bold ml-1">
+                <span className="font-bold ml-1 text-primary">
                   {aboutData.ceo.name}
                 </span>
               </p>
@@ -119,7 +114,6 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Features Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {aboutData.features.map((feature, index) => (
               <div
@@ -134,7 +128,6 @@ const AboutSection = () => {
 
           <div className="pt-4">
             <button
-              size="large"
               className="bg-primary h-14 px-10 rounded-md font-bold text-sm uppercase flex items-center gap-2"
             >
               Read More <ArrowRightOutlined />

@@ -19,7 +19,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-8 py-16 text-black">
+    <div className="mx-auto max-w-380 px-8 py-16 text-black">
       <div className="grid gap-12 md:grid-cols-2">
         <div>
           <h1 className="mb-4 text-3xl font-semibold uppercase">

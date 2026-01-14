@@ -31,7 +31,7 @@ import PremiumProducts from "@/components/view/PremiumProducts";
 //     },
 //   ];
 //   return (
-//     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+//     <div className="mx-auto max-w-380 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
 //       <header className="mb-8 flex flex-col gap-2 sm:mb-10 sm:flex-row sm:items-end sm:justify-between">
 //         <div>
 //           <h1 className="mt-2 text-xl font-semibold  text-slate-900 sm:text-4xl">
@@ -58,7 +58,7 @@ import PremiumProducts from "@/components/view/PremiumProducts";
 
 export default function Products() {
   return (
-    <div className="mx-auto flex max-w-7xl flex-col gap-28 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
+    <div className="mx-auto flex max-w-380 flex-col gap-28 px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
       <PremiumProducts />
     </div>
   );

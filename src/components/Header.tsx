@@ -2,139 +2,207 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dropdown } from "antd";
 import type { MenuProps } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import {
+  DownOutlined,
+  MailOutlined,
+  WhatsAppOutlined,
+  ClockCircleOutlined,
+} from "@ant-design/icons";
+import { companyDetails } from "@/data/contact";
+
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
 const productMenu: MenuProps["items"] = [
+  { key: "1", label: <Link href="/products/black-tiger">Black Tiger</Link> },
   {
-    key: "black-tiger",
-    label: <Link href="/products/black-tiger">Black Tiger</Link>,
-  },
-  {
-    key: "fresh-water-scampi",
+    key: "2",
     label: <Link href="/products/fresh-water-scampi">Fresh Water Scampi</Link>,
   },
-  {
-    key: "vannamei",
-    label: <Link href="/products/vannamei">Vannamei</Link>,
-  },
+  { key: "3", label: <Link href="/products/vannamei">Vannamei</Link> },
 ];
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [open]);
+
+  const whatsappLink = `https://wa.me/${companyDetails.phone.replace(/\D/g, "")}`;
+
   return (
-    <header className="sticky top-0 z-40 border-b border-sky-900/40 bg-white backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="rounded-xl bg-primary px-3 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-white">
-            Royal Sea Food
-          </span>
-        </Link>
+    <header className="sticky top-0 z-50 w-full">
+      <div className="bg-[#0b2d2a] text-white text-sm">
+        <div className="mx-auto flex flex-wrap gap-2 max-w-380 items-center justify-between px-8 py-2">
+          <div className="flex items-center gap-6">
+     
+            <a
+              href={`mailto:${companyDetails.email}`}
+              className="flex items-center gap-2 hover:text-green-400"
+            >
+              <MailOutlined />
+              {companyDetails.email}
+            </a>
 
-        <nav className="hidden items-center gap-8 text-base font-medium text-black md:flex">
-          {navItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname?.startsWith(item.href);
-
-            if (item.label === "Products") {
-              return (
-                <Dropdown
-                
-                rootClassName="product-dropdown"
-                  key="products"
-                  menu={{ items: productMenu }}
-                  trigger={["hover"]}
-                >
-                  <span
-                    className={`flex items-center gap-1 cursor-pointer transition ${
-                      isActive ? "font-bold" : "font-medium"
-                    }`}
-                  >
-                    Products
-                    <DownOutlined className="w-3 h-3  text-black" />
-                  </span>
-                </Dropdown>
-              );
-            }
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`relative transition hover:font-semibold ${
-                  isActive ? "font-bold" : ""
-                }`}
-              >
-                {item.label}
-            
-              </Link>
-            );
-          })}
-        </nav>
-
-        {/* MOBILE TOGGLE */}
-        <button
-          type="button"
-          aria-label="Toggle navigation menu"
-          className="inline-flex items-center justify-center rounded-md p-2 text-black md:hidden"
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <div className="flex flex-col gap-1.5">
-            <span className="h-0.5 w-6 rounded bg-current" />
-            <span className="h-0.5 w-6 rounded bg-current" />
-            <span className="h-0.5 w-6 rounded bg-current" />
+         
+            <span className="flex items-center gap-2">
+              <ClockCircleOutlined />
+              {companyDetails.officeHours}
+            </span>
           </div>
-        </button>
+
+        
+          <div className="flex items-center gap-3">
+            <span className="font-bold">Follow Us:</span>
+            <a
+              href={companyDetails.socialMedia.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-8 w-8 rounded-full bg-green-600 flex items-center justify-center font-bold"
+            >
+              f
+            </a>
+          </div>
+        </div>
       </div>
 
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="border-t border-sky-900/20 bg-white md:hidden">
-          <nav className="flex flex-col px-4 py-3 text-base font-medium">
-            <Link href="/" onClick={() => setOpen(false)} className="py-2">
-              Home
-            </Link>
+    
+      <div className="bg-white shadow">
+        <div className="mx-auto flex max-w-380 items-center justify-between px-8 py-4">
+   
+          <Link href="/" className="bg-green-600 px-8 text-white font-bold text-xl">
+            Royal Sea Food
+          </Link>
 
-            {/* MOBILE PRODUCTS (NO DROPDOWN — UX CORRECT) */}
-            <div className="py-2">
-              <p className="font-semibold">Products</p>
-              <div className="ml-4 mt-2 flex flex-col gap-2 text-sm">
+        
+          <nav className="hidden md:flex items-center gap-8 font-semibold">
+            {navItems.map((item) => {
+              const active =
+                item.href === "/"
+                  ? pathname === "/"
+                  : pathname?.startsWith(item.href);
+
+              if (item.label === "Products") {
+                return (
+                  <Dropdown
+                    key="products"
+                    menu={{ items: productMenu }}
+                    trigger={["hover"]}
+                  >
+                    <span
+                      className={`cursor-pointer flex items-center gap-1 ${
+                        active ? "text-green-600" : "text-black"
+                      }`}
+                    >
+                      Products <DownOutlined />
+                    </span>
+                  </Dropdown>
+                );
+              }
+
+              return (
                 <Link
-                  href="/products/black-tiger"
-                  onClick={() => setOpen(false)}
+                  key={item.href}
+                  href={item.href}
+                  className={active ? "text-green-600" : "text-black"}
                 >
-                  Black Tiger
+                  {item.label}
                 </Link>
-                <Link
-                  href="/products/fresh-water-scampi"
-                  onClick={() => setOpen(false)}
-                >
-                  Fresh Water Scampi
-                </Link>
-                <Link href="/products/vannamei" onClick={() => setOpen(false)}>
-                  Vannamei
-                </Link>
-              </div>
+              );
+            })}
+          </nav>
+
+      
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-3"
+          >
+            <div className="h-12 w-12 rounded-full bg-green-600 text-white flex items-center justify-center">
+              <WhatsAppOutlined />
             </div>
+            <div className="text-sm leading-tight">
+              <p className="text-green-600 font-semibold">WhatsApp</p>
+              <p className="font-bold text-gray-900">
+                {companyDetails.phone}
+              </p>
+            </div>
+          </a>
 
-            <Link
-              href="/contact"
-              onClick={() => setOpen(false)}
-              className="py-2"
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden flex flex-col gap-1"
+          >
+            <span className="h-0.5 w-6 bg-black" />
+            <span className="h-0.5 w-6 bg-black" />
+            <span className="h-0.5 w-6 bg-black" />
+          </button>
+        </div>
+      </div>
+
+      {open && (
+        <div className="md:hidden bg-white shadow-lg border-t">
+          <nav className="flex flex-col px-6 py-6 gap-5 font-semibold">
+            {navItems.map((item) => {
+              if (item.label === "Products") {
+                return (
+                  <div key="mobile-products" className="flex flex-col gap-3">
+                    <span className="font-bold text-gray-900">Products</span>
+                    {productMenu?.map(
+                      (p) =>
+                        p &&
+                        "label" in p &&
+                        p.label &&
+                        typeof p.label === "object" && (
+                          <Link
+                            key={p.key}
+                            href={(p.label as any).props.href}
+                            onClick={() => setOpen(false)}
+                            className="pl-4 text-gray-600"
+                          >
+                            {(p.label as any).props.children}
+                          </Link>
+                        )
+                    )}
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className="text-gray-900"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+
+            {/* MOBILE WHATSAPP */}
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 pt-4 border-t"
             >
-              Contact
-            </Link>
+              <WhatsAppOutlined className="text-xl text-green-600" />
+              <span>{companyDetails.phone}</span>
+            </a>
           </nav>
         </div>
       )}

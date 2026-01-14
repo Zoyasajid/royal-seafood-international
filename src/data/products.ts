@@ -63,8 +63,7 @@ export const products: Product[] = [
     images: [
       "/images/products/black-tiger/head-less-shell.webp",
 
-      "/images/products/black-tiger/head-less-shell-2.webp",
-      "/images/products/black-tiger/head-less-shell-3.webp",
+      "/images/products/black-tiger/head-less-shell-2.webp"
     ],
   },
   {
@@ -163,7 +162,7 @@ export const products: Product[] = [
 
     images: [
       "/images/products/black-tiger/body-peeled.webp",
-      "/images/products/black-tiger/body-peeled-2.webp",
+   
     ],
   },
   {

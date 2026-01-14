@@ -14,15 +14,15 @@ export type ContactDetails = {
 };
 
 export const companyDetails: ContactDetails = {
-  companyName: "Seafood International Exports",
+  companyName: "Royal Sea Food International",
   tagline: "Premium Ocean Harvests. Trusted Worldwide.",
-  description:
-    "Seafood International Exports is a specialized trader and consolidator of high-quality fresh and frozen seafood. From certified aquaculture farms to responsible wild-caught fisheries, we connect reliable producers with importers, distributors, and retailers in more than 40 countries.",
   email: "royalseafoodint@gmail.com",
+  description:
+    "Royal Seafood International is a leading exporter of premium fresh and frozen seafood products. We are committed to delivering the highest quality seafood sourced sustainably from the finest fishing grounds around the world. Our extensive product range includes shrimp, fish, crab, and other seafood delicacies, catering to importers, distributors, and retailers globally.",
   phone: "+8801927670156",
   address: "Khan Tower, M A Majid Soroni, Khulna, Bangladesh",
   country: "Bangladesh",
-  officeHours: "09:00 AM – 19.00 PM Saturday- Thursday",
+  officeHours: "Sunday - Thursday",
   socialMedia: {
     facebook: "https://www.facebook.com/profile.php?id=61580200603087"
   },

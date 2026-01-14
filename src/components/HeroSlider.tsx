@@ -31,82 +31,96 @@ export function HeroSlider() {
   };
 
   return (
-    <section
-      aria-label="Premium seafood hero slider"
-      className="relative overflow-hidden rounded-3xl border  shadow-lg shadow-primary/40"
-    >
-      <div className="relative h-[420px] w-full sm:h-[480px] lg:h-[520px]">
-        {heroImages.map((src, i) => (
-          <div
-            key={i}
-            className={`absolute inset-0 transition-opacity duration-700 ${
-              i === index ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            <Image
-              src={src}
-              alt="Premium seafood assortment"
-              fill
-              priority={i === 0}
-              className="object-cover"
-            />
-            <div className="absolute inset-0 " />
-          </div>
-        ))}
+ <section
+  aria-label="Premium seafood hero slider"
+  className="relative overflow-hidden "
+>
+  <div className="relative h-[85vh] sm:h-[95vh]">
+    {heroImages.map((src, i) => (
+      <div
+        key={i}
+        className={`absolute inset-0 transition-opacity duration-700 ${
+          i === index ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <div
+          className={`absolute inset-0 ${
+            i === index ? "animate-zoom" : ""
+          }`}
+        >
+          <Image
+            src={src}
+            alt="Premium seafood assortment"
+            fill
+            priority={i === 0}
+            className="object-cover"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/60 via-black/20 to-black/30" />
+      </div>
+    ))}
 
-        <div className="relative z-10 flex h-full flex-col justify-center px-6 py-10 sm:px-10 lg:px-14">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-primary">
+    <div className="relative z-10 flex h-full items-center">
+      <div className="mx-auto w-full max-w-360 px-4 sm:px-6">
+        <div className="max-w-2xl text-center sm:text-left">
+          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
             Royal Seafood International
           </p>
-          <h1 className="mt-4 max-w-xl text-3xl font-semibold tracking-tight text-black sm:text-4xl lg:text-5xl">
+
+          <h1 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
             Premium International Seafood Exporters
           </h1>
-          <p className="mt-4 max-w-xl text-sm text-black/85 sm:text-base">
+
+          <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base lg:text-lg">
             Sourcing certified fresh and frozen seafood from trusted fisheries
-            and aquaculture farms, delivering consistent export quality to
-            importers, distributors, and retailers worldwide.
+            and aquaculture farms, delivering consistent export quality
+            worldwide.
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+
+          <div className="mt-6 flex justify-center sm:justify-start">
             <Link
               href="/products"
-              className="inline-flex text-white items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold  shadow-sm shadow-primary/40 transition  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200 focus-visible:ring-offset-2 focus-visible:ring-offset-sky-950"
+              className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md shadow-primary/40 transition hover:bg-primary/90"
             >
               Explore Products
             </Link>
           </div>
+        </div>
 
-          <div className="mt-6 flex items-center gap-2">
-            {heroImages.map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                aria-label={`Go to slide ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all ${
-                  i === index
-                    ? "w-8 bg-sky-200"
-                    : "w-2.5 bg-primary/70 hover:bg-primary"
-                }`}
-                onClick={() => setIndex(i)}
-              />
-            ))}
-          </div>
-
-          <button
-            onClick={prevSlide}
-            className="absolute w-10 left-2 top-1/2 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white hover:bg-primary transition"
-            aria-label="Previous Slide"
-          >
-            &#10094;
-          </button>
-          <button
-            onClick={nextSlide}
-            className="absolute w-10 right-2 top-1/2 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white hover:bg-primary transition"
-            aria-label="Next Slide"
-          >
-            &#10095;
-          </button>
+        <div className="mt-8 flex justify-center gap-2 sm:justify-start">
+          {heroImages.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-1.5 rounded-full transition-all ${
+                i === index
+                  ? "w-8 bg-sky-200"
+                  : "w-2.5 bg-white/60 hover:bg-white"
+              }`}
+            />
+          ))}
         </div>
       </div>
-    </section>
+    </div>
+
+    <button onClick={prevSlide} className="absolute left-2 top-1/2 z-20 w-10 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white transition hover:bg-primary" aria-label="Previous Slide" > &#10094; </button> <button onClick={nextSlide} className="absolute right-2 top-1/2 z-20 w-10 -translate-y-1/2 rounded-full bg-primary/50 p-2 text-white transition hover:bg-primary" aria-label="Next Slide" > &#10095; </button>
+  </div>
+
+  <style jsx>{`
+    @keyframes zoom {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(1.1);
+      }
+    }
+    .animate-zoom {
+      animation: zoom 3s ease-in-out forwards;
+    }
+  `}</style>
+</section>
+
   );
 }
