@@ -70,7 +70,7 @@ export default function ProductDetailPage() {
                 <LeftOutlined />
               </button>
 
-              <div className="relative h-[445px] w-full max-w-xl">
+              <div className="relative h-111.25 w-full max-w-xl">
                 <Image
                   src={product.images[activeImage]}
                   alt={product.name}
@@ -92,7 +92,7 @@ export default function ProductDetailPage() {
                 <button
                   key={i}
                   onClick={() => setActiveImage(i)}
-                  className={`relative h-[116px] w-[calc((100%_-_16px)/3)] rounded-lg border ${
+                  className={`relative h-29 w-[calc((100%-16px)/3)] rounded-lg border ${
                     activeImage === i ? "border-emerald-600" : "border-gray-200"
                   }`}
                 >
@@ -142,10 +142,12 @@ export default function ProductDetailPage() {
             </div>
             {product.description && (
               <div className="mt-6 max-w-4xl">
-                <h3 className="mb-3 text-xl font-semibold uppercase">
+                <h3 className="mb-3 text-xl font-semibold uppercase ">
                   Description
                 </h3>
-                <p className="text-gray-700">{product.description}</p>
+                <p className="text-gray-700  text-justify">
+                  {product.description}
+                </p>
               </div>
             )}
             {product.keyFeatures && (
@@ -156,7 +158,7 @@ export default function ProductDetailPage() {
                     key="1"
                     className="text-xl bg-foreground"
                   >
-                    <p className="text-gray-700 text-base">
+                    <p className="text-gray-700 text-base text-justify">
                       {product.keyFeatures}
                     </p>
                   </Panel>

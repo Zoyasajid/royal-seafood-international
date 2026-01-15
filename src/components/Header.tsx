@@ -6,11 +6,11 @@ import { useEffect, useState } from "react";
 import { Dropdown } from "antd";
 import type { MenuProps } from "antd";
 import {
-  DownOutlined,
   MailOutlined,
   WhatsAppOutlined,
   ClockCircleOutlined,
 } from "@ant-design/icons";
+import { MapPinIcon } from "@heroicons/react/24/outline";
 import { companyDetails } from "@/data/contact";
 
 const navItems = [
@@ -40,14 +40,18 @@ export function Header() {
     };
   }, [open]);
 
-  const whatsappLink = `https://wa.me/${companyDetails.phone.replace(/\D/g, "")}`;
-
+  const whatsappLink = `https://wa.me/${companyDetails.phone.replace(
+    /\D/g,
+    ""
+  )}`;
+  const addressLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    companyDetails.address
+  )}`;
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full ">
       <div className="bg-[#0b2d2a] text-white text-sm">
-        <div className="mx-auto flex flex-wrap gap-2 max-w-380 items-center justify-between px-8 py-2">
-          <div className="flex items-center gap-6">
-     
+        <div className="mx-auto md:flex hidden flex-wrap gap-2 max-w-380 items-center justify-between px-8 py-2">
+          <div className="flex flex-wrap items-center gap-6">
             <a
               href={`mailto:${companyDetails.email}`}
               className="flex items-center gap-2 hover:text-green-400"
@@ -56,14 +60,21 @@ export function Header() {
               {companyDetails.email}
             </a>
 
-         
+            <a
+              href={addressLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-green-400"
+            >
+              <MapPinIcon className="text-white w-5 h-5" />
+              {companyDetails.addressTitle}
+            </a>
             <span className="flex items-center gap-2">
               <ClockCircleOutlined />
               {companyDetails.officeHours}
             </span>
           </div>
 
-        
           <div className="flex items-center gap-3">
             <span className="font-bold">Follow Us:</span>
             <a
@@ -78,15 +89,26 @@ export function Header() {
         </div>
       </div>
 
-    
-      <div className="bg-white shadow">
-        <div className="mx-auto flex max-w-380 items-center justify-between px-8 py-4">
-   
-          <Link href="/" className="bg-green-600 px-8 text-white font-bold text-xl">
-            Royal Sea Food
-          </Link>
+      <div className="bg-white shadow relative ">
+        <div className="mx-auto flex max-w-380 items-center justify-between px-8">
+          <div className=" flex items-center">
+            {/* Green Background Shape */}
+            <div
+              className="absolute inset-0 bg-green-600 md:w-1/3 w-4/5"
+              style={{
+                clipPath: "polygon(0 0, 80% 0, 95% 100%, 0% 100%)",
+                // width: "30%",
+              }}
+            />
+            {/* Logo Content */}
+            <Link
+              href="/"
+              className="relative z-10  pr-16 py-4 text-white font-bold text-3xl tracking-tight flex items-center gap-2"
+            >
+              Royal Sea Food
+            </Link>
+          </div>
 
-        
           <nav className="hidden md:flex items-center gap-8 font-semibold">
             {navItems.map((item) => {
               const active =
@@ -102,11 +124,11 @@ export function Header() {
                     trigger={["hover"]}
                   >
                     <span
-                      className={`cursor-pointer flex items-center gap-1 ${
+                      className={`cursor-pointer flex items-center gap-1 hover:text-primary ${
                         active ? "text-green-600" : "text-black"
                       }`}
                     >
-                      Products <DownOutlined />
+                      Products
                     </span>
                   </Dropdown>
                 );
@@ -116,7 +138,9 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={active ? "text-green-600" : "text-black"}
+                  className={
+                    active ? "text-green-600" : "text-black hover:text-primary"
+                  }
                 >
                   {item.label}
                 </Link>
@@ -124,7 +148,6 @@ export function Header() {
             })}
           </nav>
 
-      
           <a
             href={whatsappLink}
             target="_blank"
@@ -135,10 +158,10 @@ export function Header() {
               <WhatsAppOutlined />
             </div>
             <div className="text-sm leading-tight">
-              <p className="text-green-600 font-semibold">WhatsApp</p>
-              <p className="font-bold text-gray-900">
-                {companyDetails.phone}
+              <p className="text-green-600 font-semibold text-center">
+                WhatsApp
               </p>
+              <p className="font-bold text-gray-900">{companyDetails.phone}</p>
             </div>
           </a>
 
@@ -193,16 +216,37 @@ export function Header() {
               );
             })}
 
-            {/* MOBILE WHATSAPP */}
             <a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 pt-4 border-t"
+              className="flex items-center gap-3 pt-4 border-t "
             >
-              <WhatsAppOutlined className="text-xl text-green-600" />
-              <span>{companyDetails.phone}</span>
+              <WhatsAppOutlined
+                className="text-xl text-green-600"
+                style={{ color: "var(--color-primary)" }}
+              />
+              <span className="text-primary">{companyDetails.phone}</span>
             </a>
+            <div className="flex flex-wrap items-center gap-6">
+              <a
+                href={`mailto:${companyDetails.email}`}
+                className="flex items-center gap-2 text-primary"
+              >
+                <MailOutlined />
+                {companyDetails.email}
+              </a>
+
+              <a
+                href={addressLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary"
+              >
+                <MapPinIcon className="text-primary w-5 h-5" />
+                {companyDetails.addressTitle}
+              </a>
+            </div>
           </nav>
         </div>
       )}

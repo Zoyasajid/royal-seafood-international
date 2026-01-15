@@ -7,9 +7,9 @@ export type ContactDetails = {
   address: string;
   country: string;
   officeHours: string;
+  addressTitle: string;
   socialMedia: {
     facebook: string;
-
   };
 };
 
@@ -18,14 +18,13 @@ export const companyDetails: ContactDetails = {
   tagline: "Premium Ocean Harvests. Trusted Worldwide.",
   email: "royalseafoodint@gmail.com",
   description:
-    "Royal Seafood International is a leading exporter of premium fresh and frozen seafood products. We are committed to delivering the highest quality seafood sourced sustainably from the finest fishing grounds around the world. Our extensive product range includes shrimp, fish, crab, and other seafood delicacies, catering to importers, distributors, and retailers globally.",
+    "Royal Seafood International is a seafood consulting firm that facilitates the buying process of seafood from Bangladesh, India, and Vietnam. Since 2019, we have been working as a foreign buyer’s local agent, sourcing the best quality seafood for importers, wholesalers, and supermarkets all over the globe. Our practice is overseen by a team of highly specialized professionals who ensure the delivery of high-quality products on time and at volume-discount prices.",
   phone: "+8801927670156",
+  addressTitle: "Khulna, Bangladesh",
   address: "Khan Tower, M A Majid Soroni, Khulna, Bangladesh",
   country: "Bangladesh",
   officeHours: "Sunday - Thursday",
   socialMedia: {
-    facebook: "https://www.facebook.com/profile.php?id=61580200603087"
+    facebook: "https://www.facebook.com/profile.php?id=61580200603087",
   },
 };
-
-

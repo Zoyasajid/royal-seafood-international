@@ -1,6 +1,10 @@
 "use client";
 
 import { companyDetails } from "@/data/contact";
+import {
+  EnvelopeIcon,
+  PhoneArrowDownLeftIcon,
+} from "@heroicons/react/24/outline";
 import { Form, Input, Select, Button } from "antd";
 
 const { TextArea } = Input;
@@ -13,59 +17,95 @@ export default function ContactPage() {
   const mapLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
     `${companyDetails.address}, ${companyDetails.country}`
   )}`;
+  const [form] = Form.useForm();
+  const onFinish = async (values: any) => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
 
-  const onFinish = (values: any) => {
-    console.log("Form Values:", values);
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Your message has been sent successfully!");
+        form.resetFields();
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("An error occurred. Please try again later.");
+    }
   };
 
   return (
     <div className="mx-auto max-w-380 px-8 py-16 text-black">
       <div className="grid gap-12 md:grid-cols-2">
-        <div>
-          <h1 className="mb-4 text-3xl font-semibold uppercase">
-            Please write to us should you have any enquiries or feedback
+        <div className="md:pt-16 pt-0">
+          <h1 className=" text-xl font-semibold uppercase text-primary ">
+            Contact us
           </h1>
 
-          <p className="mb-8 text-gray-600">
-            We’re glad you’re here. Fill out this form and one of our client
-            representatives will get back to you.
+          <p className="mb-8 text-3xl font-extrabold text-gray-600 ">
+            Get In Touch With Us
           </p>
 
           <div className="mb-6">
-            <h3 className="mb-2 font-semibold">Office Address</h3>
-            <a
-              href={mapLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-700 hover:text-green-700 hover:underline"
-            >
-              {companyDetails.address}
-              <br />
-              {companyDetails.country}
-            </a>
+            <h3 className="mb-2 font-semibold">
+              {" "}
+              Address :
+              <span>
+                <a
+                  href={mapLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-700 pl-1 hover:text-green-700 hover:underline"
+                >
+                  {companyDetails.address}
+                  <br />
+                </a>
+              </span>
+            </h3>
           </div>
-
-          <div className="mb-6">
-            <h3 className="mb-2 font-semibold">Contact Us</h3>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block text-gray-700 hover:text-green-700 hover:underline"
-            >
-              Phone: {companyDetails.phone}
-            </a>
-            <a
-              href={emailLink}
-              className="block text-gray-700 hover:text-green-700 hover:underline"
-            >
-              Email: {companyDetails.email}
-            </a>
-          </div>
-
-          <div>
-            <h3 className="mb-2 font-semibold">Office Hours</h3>
-            <p className="text-gray-700">{companyDetails.officeHours}</p>
+          <div className="flex flex-col gap-6">
+            <div className="flex gap-5">
+              <div className="p-3 rounded-full btn-bg flex items-center justify-center">
+                <PhoneArrowDownLeftIcon className=" h-6 w-6 text-green-700" />
+              </div>{" "}
+              <div>
+                <h1>
+                  <span className="font-semibold">Phone</span>
+                </h1>
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-gray-700 hover:text-green-700 hover:underline"
+                >
+                  {companyDetails.phone}
+                </a>
+              </div>
+            </div>
+            <div className="flex gap-5">
+              <div className="p-3 rounded-full btn-bg flex items-center justify-center">
+                <EnvelopeIcon className=" h-6 w-6 text-green-700" />
+              </div>
+              <div>
+                <h1>
+                  <span className="font-semibold">Email</span>
+                </h1>
+                <a
+                  href={emailLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-gray-700 hover:text-green-700 hover:underline"
+                >
+                  {companyDetails.email}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -73,7 +113,9 @@ export default function ContactPage() {
           <Form layout="vertical" onFinish={onFinish}>
             <Form.Item
               name="enquiryType"
-              rules={[{ required: true, message: "Please select enquiry type" }]}
+              rules={[
+                { required: true, message: "Please select enquiry type" },
+              ]}
             >
               <Select placeholder="Enquiry Type" className="h-10">
                 <Option value="general">General Enquiry</Option>
@@ -83,21 +125,21 @@ export default function ContactPage() {
             </Form.Item>
 
             <Form.Item name="companyName">
-              <Input placeholder="Company Name (Optional)" className="h-10"/>
+              <Input placeholder="Company Name (Optional)" className="h-10" />
             </Form.Item>
 
             <Form.Item
               name="country"
               rules={[{ required: true, message: "Country is required" }]}
             >
-              <Input placeholder="Country" className="h-10"/>
+              <Input placeholder="Country" className="h-10" />
             </Form.Item>
 
             <Form.Item
               name="contactName"
               rules={[{ required: true, message: "Contact name is required" }]}
             >
-              <Input placeholder="Contact Name" className="h-10"/>
+              <Input placeholder="Contact Name" className="h-10" />
             </Form.Item>
 
             <div className="grid gap-4 md:grid-cols-2">
@@ -108,14 +150,14 @@ export default function ContactPage() {
                   { type: "email", message: "Invalid email" },
                 ]}
               >
-                <Input placeholder="Email" className="h-10"/>
+                <Input placeholder="Email" className="h-10" />
               </Form.Item>
 
               <Form.Item
                 name="phone"
                 rules={[{ required: true, message: "Phone is required" }]}
               >
-                <Input placeholder="Phone" className="h-10"/>
+                <Input placeholder="Phone" className="h-10" />
               </Form.Item>
             </div>
 
@@ -130,7 +172,10 @@ export default function ContactPage() {
               type="primary"
               htmlType="submit"
               style={{
-                background:"green",height:"35px",fontSize:"16px",borderRadius:"5px"
+                background: "green",
+                height: "35px",
+                fontSize: "16px",
+                borderRadius: "5px",
               }}
               className="bg-green-700 hover:!bg-green-800"
             >

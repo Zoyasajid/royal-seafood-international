@@ -1,4 +1,3 @@
-import React from "react";
 import VannameiImg from "@/../public/images/Vannamei.webp";
 import scampiImg from "@/../public/images/scampi.webp";
 import blackTigerImg from "@/../public/images/back-tiger.jpg";
