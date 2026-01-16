@@ -33,10 +33,7 @@ export function PremiumCard({ product }: PremiumCardProps) {
         <h3 className="text-2xl font-semibold ">{product.name}</h3>
         <div className="mt-6 flex items-center justify-between p-4 rounded-md hover:bg-primary bg-opacity-10   cursor-pointer text-primary  btn-bg hover:text-white ">
           <div className="text-xs font-semibold cursor-pointer transition hover:font-semibold  w-full ">
-            <div className="flex justify-between ">
-              <p className="text-base ">View Details</p>
-              <RightOutlined />
-            </div>
+            <p className="text-base text-center">View Details</p>
           </div>
         </div>
       </div>

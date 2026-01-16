@@ -85,18 +85,18 @@ export function HeroSlider() {
             <div className="absolute inset-0 bg-linear-to-t sm:bg-linear-to-r from-black/60 via-black/20 to-black/30" />
           </div>
         ))}
-        <div className="relative z-10 flex h-full items-center">
+        <div className="relative z-10 flex h-full items-center ">
           <div
-            className={`mx-auto w-full max-w-360 px-6 md:px-0 flex ${
-              isEven ? "justify-start" : "justify-end"
+            className={`mx-auto w-full max-w-360 px-6 md:px-20 2xl:px-0 flex  ${
+              isEven ? " justify-start" : "justify-end"
             }`}
           >
-            <div className="w-2xl  text-center sm:text-left">
-              <p className="text-base font-semibold  tracking-[0.25em] text-primary">
+            <div className="w-2xl  text-center sm:text-left  ">
+              <p className="text-base font-semibold  tracking-[0.25em] text-white">
                 HIGH QUALITY SHRIMPS
               </p>
 
-              <h1 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
+              <h1 className="mt-3 text-3xl  font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
                 {heroSlides[index].heading}
               </h1>
 

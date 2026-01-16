@@ -46,13 +46,9 @@ export function Footer() {
       <div className="mx-auto max-w-380 px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="space-y-4">
-            <Image
-              src={comapnyLogo}
-              alt="Company Logo"
-              width={230}
-              height={20}
-              className="relative z-10 pr-16 py-2"
-            />
+            <h3 className="text-xl font-bold text-white">
+              {companyDetails.companyName}
+            </h3>
             <p className="text-sm leading-relaxed text-white ">
               {companyDetails.description}
             </p>
@@ -83,7 +79,7 @@ export function Footer() {
 
           <div className="flex flex-col gap-5">
             <h2 className="text-xl font-bold text-white uppercase tracking-relaxed">
-              we export worldwide :
+              we export worldwide
             </h2>
             <Image
               src={FooterImage}
