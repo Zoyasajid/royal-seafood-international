@@ -76,7 +76,10 @@ export function Footer() {
             ))}
           </div>
 
-          <div className="">
+          <div className="flex flex-col gap-5">
+            <h2 className="text-xl font-bold text-white uppercase tracking-relaxed">
+              we export worldwide :
+            </h2>
             <Image
               src={FooterImage}
               alt="Footer Image"

@@ -13,11 +13,43 @@ const heroImages = [slider1, slider2, slider3, slider4, slider5];
 
 export function HeroSlider() {
   const [index, setIndex] = useState(0);
+  const heroSlides = [
+    {
+      image: slider1,
 
+      heading: "Fresh & Organic",
+      description: "Collected from trusted farmer",
+    },
+    {
+      image: slider2,
+
+      heading: "Maintain Protocols",
+      description: "Supervise whole process on behalf of our foreign clients",
+    },
+    {
+      image: slider3,
+
+      heading: "Market Intelligence",
+      description:
+        "Provide information about local market and act as a foreign buyer’s local agent from Bangladesh",
+    },
+    {
+      image: slider4,
+
+      heading: "Carefully Selected",
+      description: "We export worldwide with highest quality standards",
+    },
+    {
+      image: slider5,
+
+      heading: "Farmer to Processor to You",
+      description: "Our aim is how a buyer can gain from the local market",
+    },
+  ];
   useEffect(() => {
     const id = setInterval(() => {
       setIndex((prev) => (prev + 1) % heroImages.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(id);
   }, []);
@@ -29,7 +61,7 @@ export function HeroSlider() {
   const nextSlide = () => {
     setIndex((prev) => (prev + 1) % heroImages.length);
   };
-
+  const isEven = index % 2 === 0;
   return (
     <section
       aria-label="Premium seafood hero slider text-justify"
@@ -60,45 +92,32 @@ export function HeroSlider() {
           </div>
         ))}
         <div className="relative z-10 flex h-full items-center">
-          <div className="mx-auto w-full max-w-360 px-4 sm:px-6">
-            <div className="max-w-2xl text-center sm:text-left">
-              <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary">
-                Royal Seafood International
+          <div
+            className={`mx-auto w-full max-w-360 px-6 md:px-0 flex ${
+              isEven ? "justify-end" : "justify-start"
+            }`}
+          >
+            <div className="w-2xl  text-center sm:text-left">
+              <p className="text-sm font-semibold  tracking-[0.25em] text-black">
+                HIGH QUALITY SHRIMPS
               </p>
 
               <h1 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-6xl">
-                Premium International Seafood Exporters
+                {heroSlides[index].heading}
               </h1>
 
               <p className="mt-4 text-sm leading-relaxed text-white/90 sm:text-base lg:text-lg">
-                Sourcing certified fresh and frozen seafood from trusted
-                fisheries and aquaculture farms, delivering consistent export
-                quality worldwide.
+                {heroSlides[index].description}
               </p>
 
-              <div className="mt-6 flex justify-center sm:justify-start">
+              <div className={`mt-6 flex `}>
                 <Link
                   href="/products"
-                  className="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md shadow-primary/40 transition hover:bg-primary/90"
+                  className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white shadow-md shadow-primary/40 transition hover:bg-primary/90"
                 >
                   Explore Products
                 </Link>
               </div>
-            </div>
-
-            <div className="mt-8 flex justify-center gap-2 sm:justify-start">
-              {heroImages.map((_, i) => (
-                <button
-                  key={i}
-                  aria-label={`Go to slide ${i + 1}`}
-                  onClick={() => setIndex(i)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === index
-                      ? "w-8 bg-sky-200"
-                      : "w-2.5 bg-white/60 hover:bg-white"
-                  }`}
-                />
-              ))}
             </div>
           </div>
         </div>
