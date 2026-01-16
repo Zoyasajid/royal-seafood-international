@@ -26,8 +26,8 @@ const aboutData = {
     image: CEOAvatar,
   },
   images: {
-    mainWorker: AboutUSImage_1,
-    detailView: AboutUSImage_2,
+    AboutUSImage_1,
+    AboutUSImage_2,
   },
 };
 
@@ -49,18 +49,18 @@ const AboutSection = () => {
 
           <div className="w-1/2 relative rounded-sm overflow-hidden hadow-sm">
             <Image
-              src={aboutData.images.detailView}
+              src={aboutData.images.AboutUSImage_2}
               alt="Cleaning Service"
-              className="w-full h-full object-cover"
+              className="w-full h-full"
             />
           </div>
 
           <div className="w-1/2 pt-20">
             <div className="h-full rounded-sm overflow-hidden  shadow-sm">
               <Image
-                src={aboutData.images.mainWorker}
+                src={aboutData.images.AboutUSImage_1}
                 alt="Cleaning Detail"
-                className="w-full h-full object-cover"
+                className="w-full h-full "
               />
             </div>
           </div>

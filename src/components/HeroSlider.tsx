@@ -26,18 +26,17 @@ export function HeroSlider() {
     },
     {
       image: slider3,
-      heading: "Market Intelligence",
-      description:
-        "Provide information about local market and act as a foreign buyer’s local agent from Bangladesh",
+      heading: "Provide information about local market",
+      description: "Acts as a foreign buyer’s local agent from Bangladesh ",
     },
     {
       image: slider4,
       heading: "Carefully Selected",
-      description: "We export worldwide with highest quality standards",
+      description: "We expert worldwide with highest quality standards ",
     },
     {
       image: slider5,
-      heading: "Farmer to Processor to You",
+      heading: "From Farmer to Processor to You",
       description: "Our aim is how a buyer can gain from the local market",
     },
   ];

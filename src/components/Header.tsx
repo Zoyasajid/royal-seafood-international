@@ -12,7 +12,8 @@ import {
 } from "@ant-design/icons";
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import { companyDetails } from "@/data/contact";
-
+import Image from "next/image";
+import comapnyLogo from "@/../public/images/company-logo.png";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
@@ -94,7 +95,7 @@ export function Header() {
           <div className=" flex items-center">
             {/* Green Background Shape */}
             <div
-              className="absolute inset-0 bg-green-600 md:w-1/3 w-4/5"
+              className="absolute inset-0 bg-primary md:w-1/3 w-4/5"
               style={{
                 clipPath: "polygon(0 0, 80% 0, 95% 100%, 0% 100%)",
                 // width: "30%",
@@ -103,9 +104,15 @@ export function Header() {
             {/* Logo Content */}
             <Link
               href="/"
-              className="relative z-10  pr-16 py-4 text-white font-bold text-3xl tracking-tight flex items-center gap-2"
+              className="relative z-10  pr-16 text-white font-bold text-3xl tracking-tight flex items-center gap-2"
             >
-              Royal Sea Food
+              <Image
+                src={comapnyLogo}
+                alt="Company Logo"
+                width={230}
+                height={20}
+                className="relative z-10 pr-16 py-2"
+              />
             </Link>
           </div>
 

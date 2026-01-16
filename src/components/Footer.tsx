@@ -10,6 +10,7 @@ import {
 import { companyDetails } from "@/data/contact";
 import Image from "next/image";
 import FooterImage from "@/../public/images/img-footer-map.png";
+import comapnyLogo from "@/../public/images/company-logo.png";
 const contactItems = [
   {
     icon: <WhatsAppOutlined className="text-lg mt-1" />,
@@ -45,9 +46,13 @@ export function Footer() {
       <div className="mx-auto max-w-380 px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">
-              {companyDetails.companyName}
-            </h3>
+            <Image
+              src={comapnyLogo}
+              alt="Company Logo"
+              width={230}
+              height={20}
+              className="relative z-10 pr-16 py-2"
+            />
             <p className="text-sm leading-relaxed text-white ">
               {companyDetails.description}
             </p>
