@@ -2,12 +2,12 @@
 
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #F1F7FA;
+  --color-foreground: #f1f7fa;
 
   --color-primary: #1c863e;
   --color-primary-foreground: #ffffff;
-  --color-button-primary:"#1c863e0f";
-  --color-secondary: #0E0E0E;
+  --color-button-primary: "#1c863e0f";
+  --color-secondary: #0e0e0e;
   --color-secondary-foreground: #ffffff;
   --color-accent: #22c55e;
 }
@@ -34,10 +34,17 @@ body {
   display: flex;
   align-items: center;
   border-radius: 6px;
-
 }
 
 .product-dropdown .ant-dropdown-menu-item:hover {
- background-color: var(--color-primary) !important; 
-  color: white; 
+  background-color: var(--color-primary) !important;
+  color: white;
+}
+.whatsapp-icon {
+  font-size: 24px;
+  color: #2f855a;
+}
+
+.whatsapp-icon:hover {
+  color: white;
 }

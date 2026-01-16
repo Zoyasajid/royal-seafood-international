@@ -1,12 +1,9 @@
 "use client";
 
 import { companyDetails } from "@/data/contact";
-import {
-  EnvelopeIcon,
-  PhoneArrowDownLeftIcon,
-} from "@heroicons/react/24/outline";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { Form, Input, Select, Button } from "antd";
-
+import { WhatsAppOutlined } from "@ant-design/icons";
 const { TextArea } = Input;
 const { Option } = Select;
 
@@ -72,7 +69,7 @@ export default function ContactPage() {
           <div className="flex flex-col gap-6">
             <div className="flex gap-5">
               <div className="p-3 rounded-full btn-bg flex items-center justify-center">
-                <PhoneArrowDownLeftIcon className=" h-6 w-6 text-green-700" />
+                <WhatsAppOutlined className="whatsapp-icon" />
               </div>{" "}
               <div>
                 <h1>
@@ -90,7 +87,7 @@ export default function ContactPage() {
             </div>
             <div className="flex gap-5">
               <div className="p-3 rounded-full btn-bg flex items-center justify-center">
-                <EnvelopeIcon className=" h-6 w-6 text-green-700" />
+                <EnvelopeIcon className=" h-6 w-6 text-green-700 hover:text-white" />
               </div>
               <div>
                 <h1>
