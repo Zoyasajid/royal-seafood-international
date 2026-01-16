@@ -16,32 +16,27 @@ export function HeroSlider() {
   const heroSlides = [
     {
       image: slider1,
-
       heading: "Fresh & Organic",
       description: "Collected from trusted farmer",
     },
     {
       image: slider2,
-
       heading: "Maintain Protocols",
       description: "Supervise whole process on behalf of our foreign clients",
     },
     {
       image: slider3,
-
       heading: "Market Intelligence",
       description:
         "Provide information about local market and act as a foreign buyer’s local agent from Bangladesh",
     },
     {
       image: slider4,
-
       heading: "Carefully Selected",
       description: "We export worldwide with highest quality standards",
     },
     {
       image: slider5,
-
       heading: "Farmer to Processor to You",
       description: "Our aim is how a buyer can gain from the local market",
     },
@@ -94,11 +89,11 @@ export function HeroSlider() {
         <div className="relative z-10 flex h-full items-center">
           <div
             className={`mx-auto w-full max-w-360 px-6 md:px-0 flex ${
-              isEven ? "justify-end" : "justify-start"
+              isEven ? "justify-start" : "justify-end"
             }`}
           >
             <div className="w-2xl  text-center sm:text-left">
-              <p className="text-sm font-semibold  tracking-[0.25em] text-black">
+              <p className="text-base font-semibold  tracking-[0.25em] text-primary">
                 HIGH QUALITY SHRIMPS
               </p>
 
