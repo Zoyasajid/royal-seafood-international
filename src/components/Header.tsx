@@ -120,6 +120,7 @@ export function Header() {
                 return (
                   <Dropdown
                     key="products"
+                    rootClassName="product-dropdown"
                     menu={{ items: productMenu }}
                     trigger={["hover"]}
                   >
